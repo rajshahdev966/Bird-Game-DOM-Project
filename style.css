@@ -10,10 +10,44 @@ body {
   font-family: "Press Start 2P", system-ui;
   font-weight: 400;
   font-style: normal;
-  padding: 18px 32px;
+    color: ;
+  /* padding: 18px 32px; */
 }
+:root {
+    --panel:#101F31;
+    --panel-dark:#14283D;
+
+    --gold:#E8C066;
+    --gold-light:#F9D98C;
+    --gold-dark:#C9963A;
+
+    --cyan:#3FA8A4;
+    --cyan-dark:#1E5B61;
+
+    --green:#6D7745;
+    --green-dark:#404B2A;
+
+    --bird:#F3C65D;
+    --bird-wing:#F7E5C4;
+    --beak:#D65A35;
+
+    --border:#6E7D68;
+
+}
+
+
+
+
+
+
 main{
-    background-color: red;
     height: 100%;
-    width: 100%;
+    background-image: url(./desktop-back.png);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center ;
+    flex-direction: column;
+    color: var(--gold-dark);
 }
