@@ -49,5 +49,10 @@ main{
     align-items: center;
     justify-content: center ;
     flex-direction: column;
-    color: var(--gold-dark);
+}
+.start-head-text{
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    line-height: 0.9;
 }
