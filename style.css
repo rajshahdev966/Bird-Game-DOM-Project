@@ -7,4 +7,13 @@ html,
 body {
   height: 100%;
   width: 100%;
+  font-family: "Press Start 2P", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  padding: 18px 32px;
+}
+main{
+    background-color: red;
+    height: 100%;
+    width: 100%;
 }
