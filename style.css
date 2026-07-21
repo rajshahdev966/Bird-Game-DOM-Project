@@ -68,7 +68,12 @@ main{
 #start-play-button{
     border-radius: 1px;
     border: 4px solid var(--gold-dark);
-    padding: 0px 20px ;
+    color: ;
+    font-size: 20px;
+    padding: 10px 20px ;
 
 }
-#
+#start-set-button{
+    border-radius: 1px;
+    
+}
