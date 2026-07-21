@@ -77,5 +77,6 @@ main{
     border-radius: 1px;
     border: 4px solid var(--gold-dark);
     color: ;
-    font-size: ;
+    font-size: 20px;
+    padding: 10px 20px;
 }
