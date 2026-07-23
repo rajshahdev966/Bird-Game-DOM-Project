@@ -57,7 +57,7 @@ const genPipes = () => {
     pipeTop.className = "pipe";
     pipeDown.className = "pipe";
 
-    let left = elem.position; // Here we never stored the DOM object if in future we need it we have to sotre fit in object
+     // Here we never stored the DOM object if in future we need it we have to sotre fit in object
 
     elem.topElement = pipeTop;
     elem.bottomElement =  pipeDown;
@@ -66,8 +66,8 @@ const genPipes = () => {
     pipeTop.style.height = elem.topHeight + "px";
     pipeDown.style.height = elem.bottomHeight + "px";
 
-    pipeTop.style.left = left + "px";
-    pipeDown.style.left = left + "px";
+    pipeTop.style.left = elem.position + "px";
+    pipeDown.style.left = elem.position + "px";
 
     pipeTop.style.top = 0;
     pipeDown.style.bottom = 0;
@@ -75,16 +75,15 @@ const genPipes = () => {
     section.append(pipeTop, pipeDown);
 
     let gameForward = setInterval(()=>{
-        left -= 2;
-        pipeTop.style.left = left + "px";
-        pipeDown.style.left = left + "px";
+        elem.position -= 2;
+        pipeTop.style.left = elem.position + "px";
+        pipeDown.style.left = elem.position + "px";
 
-        if(left < -385){
+        if(elem.position < -385){
             elem.position += section.clientWidth + (300 + 85) * 8;
             clearInterval(gameForward);
-            left = elem.position;
-            pipeTop.style.left = left + "px";
-            pipeDown.style.left = left + "px";
+            pipeTop.style.left = elem.position + "px";
+            pipeDown.style.left = elem.position + "px";
             elem.topHeight = Math.random() * (section.clientHeight - gap - 50) + 50;
             pipeTop.style.height = elem.topHeight + "px";
             pipeDown.style.height = elem.bottomHeight + "px";
