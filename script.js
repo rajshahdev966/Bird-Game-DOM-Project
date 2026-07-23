@@ -125,6 +125,14 @@ const genPipes = () => {
         pipeDown.style.height = elem.bottomHeight + "px";
       }
       birdLost();
+
+       if(elem.position < 100 && elem.position > -85){
+        if(birdFromTop < elem.topHeight || birdFromTop + 100 > elem.topHeight + gap){
+            console.log("Bird collided");
+            
+        }
+        
+    }
     }, 10);
   });
 };
@@ -148,7 +156,7 @@ const birdLost = () => {
 
 const pipeCollision = ()=>{
     if(elem.position < 100 && elem.position > -85){
-        if(birdFromTop < elem.topHeight || birdFromTop > elem.topHeight + gap){
+        if(birdFromTop < elem.topHeight || birdFromTop + 100 > elem.topHeight + gap){
             console.log("Bird collided");
             
         }
