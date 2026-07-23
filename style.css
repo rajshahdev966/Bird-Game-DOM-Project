@@ -156,8 +156,18 @@ section{
     justify-content: center;
 }
 .game-over-box{
-    height: 50%;
-    width: 50%;
     background-color: var(--panel);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 15px 30px;
+    gap: 20px;
+    
 }
-
+.game-over-text{
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 55px;
+    color: var(--gold);
+    text-align: center;
+}
