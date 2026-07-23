@@ -174,4 +174,4 @@ const gameOver = ()=>{
     birdFromTop = 200;
 }
 
-const scoreCount
+const scoreCount = ()
