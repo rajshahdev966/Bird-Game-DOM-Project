@@ -18,6 +18,8 @@ const birdGravity = () => {
   }, 20);
 };
 
+const birdWings = new Audio("sfx_wing.mp3")
+
 const gameStart = () => {
   main.style.display = "none";
   section.style.display = "flex";
@@ -46,6 +48,7 @@ document.addEventListener("keydown", (e) => {
   if (e.code == "Space") {
     birdFromTop -= 60;
     bird.style.top = birdFromTop + "px";
+    birdWings.play();
   }
 });
 
