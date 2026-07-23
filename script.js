@@ -146,7 +146,7 @@ let checkBirdCollide = setInterval(() => {
     gapStart: pipe.topHeight,
     gapEnd: pipe.topHeight + gap
 });
-                  gameOver();
+        gameOver();
 
         }
     }
@@ -175,5 +175,5 @@ const gameOver = ()=>{
 }
 
 const scoreCount = ()=>{
-    
+
 }
