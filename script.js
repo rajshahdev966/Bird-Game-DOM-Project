@@ -144,4 +144,6 @@ const birdLost = () => {
     gameLost.style.display = "flex";
     birdFromTop = 200;
   }
+
+  
 };
