@@ -125,7 +125,6 @@ const genPipes = () => {
         pipeDown.style.height = elem.bottomHeight + "px";
       }
     }, 10);
-    
   });
 };
 
@@ -135,23 +134,18 @@ let checkBirdLost = setInterval(() => {
 
 let checkBirdCollide = setInterval(() => {
   for (const pipe of allPipes) {
-    if(pipe.position < bird.clientWidth && pipe.position > -85){
-        console.log("X collide");
-        
-        if(birdFromTop < pipe.topHeight || birdFromTop + bird.clientHeight > pipe.topHeight + gap){
-            console.log("Y collided");
-            console.log({
-    birdTop: birdFromTop,
-    birdBottom: birdFromTop + bird.clientHeight,
-    gapStart: pipe.topHeight,
-    gapEnd: pipe.topHeight + gap
-});
-        gameOver();
+    if (pipe.position < bird.clientWidth && pipe.position > -85) {
+      console.log("X collide");
 
-        }
+      if (
+        birdFromTop < pipe.topHeight ||
+        birdFromTop + bird.clientHeight > pipe.topHeight + gap
+      ) {
+        gameOver();
+      }
     }
-};
-}, 5)
+  }
+}, 5);
 
 const birdLost = () => {
   if (birdFromTop < 0 || birdFromTop > document.body.clientHeight - 50) {
@@ -159,21 +153,20 @@ const birdLost = () => {
   }
 };
 
-const gameOver = ()=>{
-    GameLoss.play();
-    for(const pipe of allPipes){
-        clearInterval(pipe.gameForward);
-        
-    }
-    clearInterval(gravityInterval);
-    clearInterval(checkBirdLost);
-    clearInterval(checkBirdCollide)
-    main.style.display = "none";
-    section.style.display = "none";
-    gameLost.style.display = "flex";
-    birdFromTop = 200;
-}
+const gameOver = () => {
+  GameLoss.play();
+  for (const pipe of allPipes) {
+    clearInterval(pipe.gameForward);
+  }
+  clearInterval(gravityInterval);
+  clearInterval(checkBirdLost);
+  clearInterval(checkBirdCollide);
+  main.style.display = "none";
+  section.style.display = "none";
+  gameLost.style.display = "flex";
+  birdFromTop = 200;
+};
 
-const scoreCount = ()=>{
-
-}
+const scoreCount = () => {
+    
+};
