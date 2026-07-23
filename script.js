@@ -4,6 +4,7 @@ const main = document.querySelector("main");
 const section = document.querySelector("section");
 const bird = document.querySelector("#bird-play-img");
 const startBut = document.querySelector("#start-play-button");
+const gameLost = document.querySelector(".game-lost-screen")
 
 let birdFromTop = 200;
 let gravity = 3;
@@ -140,7 +141,10 @@ const birdLost = ()=>{
         GameLoss.play();
         clearInterval(gameForward)
         clearInterval(gravityInterval)
-        main
+        main.style.display = "none"
+        section.style.display = "none"
+        gameLost.style.display = "flex"
+
         
     }
 }
