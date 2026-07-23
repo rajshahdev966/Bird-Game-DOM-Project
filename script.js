@@ -19,6 +19,7 @@ const birdGravity = () => {
 };
 
 const birdWings = new Audio("sfx_wing.mp3")
+const GameLoss = new Audio("")
 
 const gameStart = () => {
   main.style.display = "none";
@@ -132,5 +133,7 @@ const genPipes = () => {
 
 
 const birdLost = ()=>{
-    
+    if(birdFromTop > section.clientHeight){
+
+    }
 }
