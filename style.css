@@ -128,8 +128,9 @@ section{
 .cap-of-up{
     background-image: url(./capOfDown.png);
     background-repeat: no-repeat;
-    
+    background-size: 100%;
     width: 100%;
-
-
+}
+.tunnelBody{
+    background-image: url();
 }
