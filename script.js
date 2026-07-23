@@ -149,9 +149,9 @@ const birdLost = ()=>{
         section.style.display = "none"
         gameLost.style.display = "flex"
         setTimeout(()=>{
-            
-        }, sounf)
-        GameLoss.pause()
+            GameLoss.pause()
+            GameLoss.currentTime = 0
+        }, GameLoss.duration)
 
 
         
