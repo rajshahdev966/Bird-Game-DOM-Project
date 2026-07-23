@@ -89,9 +89,6 @@ const genPipes = () => {
     pipeTop.append(capOfUp, tunnelBody1)
     pipeDown.append(capOfDown, tunnelBody2)
 
-
-
-
     // THREE PEICE PIPE ENDING
 
 
@@ -137,8 +134,14 @@ const genPipes = () => {
             birdLost();
 
         }, 5)
+
+        
     });
-    };
+};
+
+let checkBirdLost = setInterval(()=>{
+    birdLost();
+}, 5)
 
 
 const birdLost = ()=>{
