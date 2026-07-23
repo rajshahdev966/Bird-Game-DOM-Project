@@ -92,12 +92,6 @@ const genPipes = () => {
 
             pipeTop.style.height = elem.topHeight + "px";
             pipeDown.style.height = elem.bottomHeight + "px";
-
-            for(let j = 0; j <= 7; j++){
-                let temp = allPipes[j];
-                allPipes[j] = allPipes[j+1];
-                allPipes[j+1] = allPipes[j]
-            }
             
         }
 
