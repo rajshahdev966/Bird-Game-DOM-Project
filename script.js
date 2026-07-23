@@ -53,6 +53,8 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
+let gameForward;
+
 const genPipes = () => {
   allPipes.forEach((elem, index) => {
     const pipeTop = document.createElement("div");
@@ -99,7 +101,7 @@ const genPipes = () => {
 
     section.append(pipeTop, pipeDown);
 
-        let gameForward = setInterval(()=>{
+        gameForward = setInterval(()=>{
             elem.position -= 2;
             pipeTop.style.left = elem.position + "px";
             pipeDown.style.left = elem.position + "px";
@@ -135,6 +137,8 @@ const genPipes = () => {
 const birdLost = ()=>{
     if(birdFromTop < -2){
         GameLoss.play();
+        clearInterval(gameForward)
+        
     }
 }
 setInterval(()=>{
