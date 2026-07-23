@@ -118,7 +118,6 @@ const genPipes = () => {
         }
 
         elem.isScore = false;
-        score++;
         elem.position = lastPos + 300 + 85;
 
 
@@ -173,6 +172,7 @@ const scoreCount = () => {
     for(const pipe of allPipes){
         if(pipe.position < bird.clientWidth){
             pipe.isScore = true;
+            score++
             scoreValue.textContent = score
         }
     }
