@@ -120,6 +120,8 @@ section{
 }
 .pipe{
     background-image: url(./tunnel.png);
+    background-position: center;
+    background-size: cover;
     position: absolute;
     width: 85px;
 }
