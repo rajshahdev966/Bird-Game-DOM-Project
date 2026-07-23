@@ -111,18 +111,8 @@ section{
     height: 100px;
     position: absolute;
     top: 350px;
-    /* transform: scale(2); */
 
-}
-#bird-play-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; 
-    
-    transform: scale(2); 
-    
 
-    /* transition: transform 0.3s ease;  */
 }
 .all-pipes{
     width: 100%;
