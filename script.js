@@ -124,8 +124,6 @@ const genPipes = () => {
 
                 pipeTop.style.height = elem.topHeight + "px";
                 pipeDown.style.height = elem.bottomHeight + "px";
-
-                birdLost();
                 
             }
 
@@ -135,7 +133,10 @@ const genPipes = () => {
 
 
 const birdLost = ()=>{
-    if(birdFromTop < 2){
+    if(birdFromTop < -2){
         GameLoss.play();
     }
 }
+setInterval(()=>{
+    birdLost();
+}, 1)
