@@ -124,6 +124,7 @@ section{
 }
 .upper-pipes{
     display: flex;
+    flex-direction: column-reverse;
 }
 .cap-of-up{
     background-image: url(./capOfDown.png);

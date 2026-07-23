@@ -73,9 +73,9 @@ const genPipes = () => {
     tunnelBody.className = "tunnel-body-img"
 
     pipeTop.append(tunnelBody, capOfUp)
-    pipeDown.append(capOfDown, tunnelBody)
+    // pipeDown.append(capOfDown, tunnelBody)
 
-    
+
 
 
     // THREE PEICE PIPE ENDING
