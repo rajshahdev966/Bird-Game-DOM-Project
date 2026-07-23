@@ -62,6 +62,18 @@ const genPipes = () => {
     elem.topElement = pipeTop;
     elem.bottomElement =  pipeDown;
 
+    // THREE PEICE PIPE WORKING
+    
+    const capOfUp = document.createElement("div")
+    const capOfDown = document.createElement("div")
+    const tunnelLenImg = document.createElement("div")
+
+    
+
+
+    // THREE PEICE PIPE ENDING
+
+
 
     pipeTop.style.height = elem.topHeight + "px";
     pipeDown.style.height = elem.bottomHeight + "px";
