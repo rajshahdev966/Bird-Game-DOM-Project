@@ -4,11 +4,11 @@ const main = document.querySelector("main");
 const section = document.querySelector("section");
 const bird = document.querySelector("#bird-play-img");
 const startBut = document.querySelector("#start-play-button");
-const gameLost = document.querySelector(".game-lost-screen")
+const gameLost = document.querySelector(".game-lost-screen");
 
-main.style.display = "flex"
-section.style.display = "none"
-gameLost.style.display = "none"
+main.style.display = "flex";
+section.style.display = "none";
+gameLost.style.display = "none";
 
 let birdFromTop = 200;
 let gravity = 3;
@@ -24,8 +24,8 @@ const birdGravity = () => {
   }, 20);
 };
 
-const birdWings = new Audio("sfx_wing.mp3")
-const GameLoss = new Audio("sfx_die.mp3")
+const birdWings = new Audio("sfx_wing.mp3");
+const GameLoss = new Audio("sfx_die.mp3");
 
 const gameStart = () => {
   main.style.display = "none";
@@ -39,10 +39,8 @@ const gameStart = () => {
       bottomHeight: section.clientHeight - topHeight - gap,
     };
     allPipes.push(pipe);
-}
-genPipes();
-
-  
+  }
+  genPipes();
 };
 
 startBut.addEventListener("click", () => {
@@ -69,29 +67,27 @@ const genPipes = () => {
     pipeTop.className = "pipe upper-pipes";
     pipeDown.className = "pipe lower-pipes";
 
-     // Here we never stored the DOM object if in future we need it we have to sotre fit in object
+    // Here we never stored the DOM object if in future we need it we have to sotre fit in object
 
     elem.topElement = pipeTop;
-    elem.bottomElement =  pipeDown;
+    elem.bottomElement = pipeDown;
 
     // THREE PEICE PIPE WORKING
-    
-    const capOfUp = document.createElement("div")
-    const capOfDown = document.createElement("div")
-    const tunnelBody1 = document.createElement("div")
-    const tunnelBody2 = document.createElement("div")
 
-    capOfUp.className = "cap-of-up"
-    capOfDown.className = "cap-of-down"
-    tunnelBody1.className = "tunnel-body-img"
-    tunnelBody2.className = "tunnel-body-img"
+    const capOfUp = document.createElement("div");
+    const capOfDown = document.createElement("div");
+    const tunnelBody1 = document.createElement("div");
+    const tunnelBody2 = document.createElement("div");
 
-    pipeTop.append(capOfUp, tunnelBody1)
-    pipeDown.append(capOfDown, tunnelBody2)
+    capOfUp.className = "cap-of-up";
+    capOfDown.className = "cap-of-down";
+    tunnelBody1.className = "tunnel-body-img";
+    tunnelBody2.className = "tunnel-body-img";
+
+    pipeTop.append(capOfUp, tunnelBody1);
+    pipeDown.append(capOfDown, tunnelBody2);
 
     // THREE PEICE PIPE ENDING
-
-
 
     pipeTop.style.height = elem.topHeight + "px";
     pipeDown.style.height = elem.bottomHeight + "px";
@@ -104,55 +100,48 @@ const genPipes = () => {
 
     section.append(pipeTop, pipeDown);
 
-        gameForward = setInterval(()=>{
-            elem.position -= 2;
-            pipeTop.style.left = elem.position + "px";
-            pipeDown.style.left = elem.position + "px";
+    gameForward = setInterval(() => {
+      elem.position -= 2;
+      pipeTop.style.left = elem.position + "px";
+      pipeDown.style.left = elem.position + "px";
 
-            let lastPos = allPipes[0].position;
-            if(elem.position < -385){
-                for(const pipe of allPipes){
-                    if(pipe.position > lastPos){
-                        lastPos = pipe.position;
-                    }
-                }
+      let lastPos = allPipes[0].position;
+      if (elem.position < -385) {
+        for (const pipe of allPipes) {
+          if (pipe.position > lastPos) {
+            lastPos = pipe.position;
+          }
+        }
 
-                elem.position = lastPos + 300 + 85;
-                
-                pipeTop.style.left =  elem.position +  "px";
-                pipeDown.style.left = elem.position + "px";
+        elem.position = lastPos + 300 + 85;
 
-                
-                
-                elem.topHeight = Math.random() * (section.clientHeight - gap - 50) + 50;
-                elem.bottomHeight = section.clientHeight - elem.topHeight - gap;
+        pipeTop.style.left = elem.position + "px";
+        pipeDown.style.left = elem.position + "px";
 
-                pipeTop.style.height = elem.topHeight + "px";
-                pipeDown.style.height = elem.bottomHeight + "px";
-                
-            }
-            birdLost();
+        elem.topHeight = Math.random() * (section.clientHeight - gap - 50) + 50;
+        elem.bottomHeight = section.clientHeight - elem.topHeight - gap;
 
-        }, 5)
-
-        
-    });
+        pipeTop.style.height = elem.topHeight + "px";
+        pipeDown.style.height = elem.bottomHeight + "px";
+      }
+      birdLost();
+    }, 10);
+  });
 };
 
-let checkBirdLost = setInterval(()=>{
-    birdLost();
-}, 5)
+let checkBirdLost = setInterval(() => {
+  birdLost();
+}, 5);
 
-
-const birdLost = ()=>{
-    if(birdFromTop < 0 || birdFromTop > document.body.clientHeight - 50){
-        GameLoss.play();
-        clearInterval(gameForward)
-        clearInterval(gravityInterval)
-        clearInterval(checkBirdLost)
-        main.style.display = "none"
-        section.style.display = "none"
-        gameLost.style.display = "flex"
-        birdFromTop = 200;
-    }
-}
+const birdLost = () => {
+  if (birdFromTop < 0 || birdFromTop > document.body.clientHeight - 50) {
+    GameLoss.play();
+    clearInterval(gameForward);
+    clearInterval(gravityInterval);
+    clearInterval(checkBirdLost);
+    main.style.display = "none";
+    section.style.display = "none";
+    gameLost.style.display = "flex";
+    birdFromTop = 200;
+  }
+};
