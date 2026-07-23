@@ -141,22 +141,13 @@ const genPipes = () => {
 
 
 const birdLost = ()=>{
-    if(birdFromTop < -2){
+    if(birdFromTop < -2 || birdFromTop > document.body.clientHeight){
         GameLoss.play();
         clearInterval(gameForward)
         clearInterval(gravityInterval)
         main.style.display = "none"
         section.style.display = "none"
         gameLost.style.display = "flex"
-        // setTimeout(()=>{
-        //     // GameLoss.pause()
-        //     GameLoss.currentTime = 0
-        // }, GameLoss.duration)
-        console.log(GameLoss.duration)
-
-        
+        birdFromTop = 200;
     }
 }
-setInterval(()=>{
-    birdLost();
-}, 1)
