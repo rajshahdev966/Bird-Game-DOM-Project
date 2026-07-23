@@ -132,7 +132,8 @@ section{
     width: 100%;
 }
 .tunnel-body-img{
-    background-image: url(./tunnelLength.png);
+    /* background-image: url(./tunnelLength.png); */
+    background-color: #1E5B61;
     background-repeat: no-repeat;
     width: 100%;
     background-size: 100% 100%;
