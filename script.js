@@ -132,8 +132,8 @@ const genPipes = () => {
 };
 
 let checkBirdStatus = setInterval(() => {
-  birdLost();
   BirdCollide();
+  scoreCount();
 }, 5);
 
 const gameOver = () => {
@@ -164,9 +164,6 @@ let BirdCollide = () => {
     gameOver();
   }
 };
-
-
-
 
 const scoreCount = () => {
     for(const pipe of allPipes){
