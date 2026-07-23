@@ -195,6 +195,7 @@ section{
     font-weight: 400;
     color: var(--gold-light);
     justify-content: space-between;
+    display: flex;
 }
 .game-over-buttons{
     display: flex;
