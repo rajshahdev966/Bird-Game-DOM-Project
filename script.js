@@ -40,6 +40,7 @@ const gameStart = () => {
       position: section.clientWidth + (300 + 85) * i,
       topHeight,
       bottomHeight: section.clientHeight - topHeight - gap,
+      isScore: false,
     };
     allPipes.push(pipe);
   }
@@ -116,7 +117,10 @@ const genPipes = () => {
           }
         }
 
+        elem.isScore = false;
+        score++;
         elem.position = lastPos + 300 + 85;
+
 
         pipeTop.style.left = elem.position + "px";
         pipeDown.style.left = elem.position + "px";
@@ -168,8 +172,7 @@ let BirdCollide = () => {
 const scoreCount = () => {
     for(const pipe of allPipes){
         if(pipe.position < -85){
-            score++;
-            scoreValue.textContent = score;
+            pipe.isScore = true;
         }
     }
 };
