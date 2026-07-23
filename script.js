@@ -74,33 +74,36 @@ const genPipes = () => {
 
     section.append(pipeTop, pipeDown);
 
-    let gameForward = setInterval(()=>{
-        elem.position -= 2;
-        pipeTop.style.left = elem.position + "px";
-        pipeDown.style.left = elem.position + "px";
+        let gameForward = setInterval(()=>{
+            elem.position -= 2;
+            pipeTop.style.left = elem.position + "px";
+            pipeDown.style.left = elem.position + "px";
 
-        if(elem.position < -385){
-            for(let j = 0; j<= 7; j++){
+            let lastPos = 0;
+            if(elem.position < -385){
+                for(const pipe of allPipes){
+                    if(pipe.position > lastPos){
+                        lastPos = pipe.position;
+                    }
+                }
+
+                elem.position += section.clientHeight + (385)
+                
+                pipeTop.style.left = lastPos + (300 + 85) +  "px";
+                pipeDown.style.left = lastPos + (300 + 85) + "px";
+
+                
+                
+                elem.topHeight = Math.random() * (section.clientHeight - gap - 50) + 50;
+                elem.bottomHeight = section.clientHeight - elem.topHeight - gap;
+
+                pipeTop.style.height = elem.topHeight + "px";
+                pipeDown.style.height = elem.bottomHeight + "px";
                 
             }
 
-
-            
-            pipeTop.style.left = allPipes[7].position + (300 + 85) +  "px";
-            pipeDown.style.left = allPipes[7].position + (300 + 85) + "px";
-
-            // elem.position = allPipes[7].position + (300 + 85)
-            
-            elem.topHeight = Math.random() * (section.clientHeight - gap - 50) + 50;
-            elem.bottomHeight = section.clientHeight - elem.topHeight - gap;
-
-            pipeTop.style.height = elem.topHeight + "px";
-            pipeDown.style.height = elem.bottomHeight + "px";
-            
-        }
-
-    }, 5)
-  });
-};
+        }, 5)
+    });
+    };
 
 
