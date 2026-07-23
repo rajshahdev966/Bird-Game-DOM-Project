@@ -48,7 +48,7 @@ document.addEventListener("keydown", (e) => {
   if (e.code == "Space") {
     birdFromTop -= 60;
     bird.style.top = birdFromTop + "px";
-    birdWings.play();
+    birdWings.cloneNode(true).play();
   }
 });
 
