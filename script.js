@@ -173,6 +173,7 @@ const scoreCount = () => {
     for(const pipe of allPipes){
         if(pipe.position < -85){
             pipe.isScore = true;
+            scoreValue.textContent = score
         }
     }
 };
