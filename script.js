@@ -13,6 +13,8 @@ gameLost.style.display = "none";
 let birdFromTop = 200;
 let gravity = 3;
 let gravityInterval;
+let score = 0;
+
 
 const allPipes = [];
 const gap = 225;
@@ -132,7 +134,7 @@ let checkBirdLost = setInterval(() => {
   birdLost();
 }, 5);
 
-let checkBirdCollide = setInterval(() => {
+let BirdCollide = () => {
   for (const pipe of allPipes) {
     if (pipe.position < bird.clientWidth && pipe.position > -85) {
       if (
@@ -143,7 +145,7 @@ let checkBirdCollide = setInterval(() => {
       }
     }
   }
-}, 5);
+};
 
 const birdLost = () => {
   if (birdFromTop < 0 || birdFromTop > document.body.clientHeight - 50) {
@@ -166,5 +168,5 @@ const gameOver = () => {
 };
 
 const scoreCount = () => {
-    
+    if()
 };
