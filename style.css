@@ -119,7 +119,7 @@ section{
     bottom: 0px;
 }
 .pipe{
-    background-color: var(--green-dark);
+    background-image: url(./tunnel.png);
     position: absolute;
     width: 85px;
 }
