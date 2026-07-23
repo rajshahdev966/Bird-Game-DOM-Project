@@ -117,9 +117,6 @@ section{
 .lower-pipes{
     height: 100px;
     bottom: 0px;
-    background-image: url(./tunnel.png);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
 }
 .pipe{
     position: absolute;
@@ -131,5 +128,5 @@ section{
 .cap-of-up{
     background-image: url(./capOfUp.png);
     width: 100%;
-    
+
 }
