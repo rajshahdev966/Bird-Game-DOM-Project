@@ -100,7 +100,7 @@ const genPipes = () => {
 
     section.append(pipeTop, pipeDown);
 
-    gameForward = setInterval(() => {
+    elem.gameForward = setInterval(() => {
       elem.position -= 2;
       pipeTop.style.left = elem.position + "px";
       pipeDown.style.left = elem.position + "px";
@@ -125,7 +125,6 @@ const genPipes = () => {
         pipeDown.style.height = elem.bottomHeight + "px";
       }
     }, 10);
-    console.log(gameForward);
     
   });
 };
@@ -135,9 +134,9 @@ let checkBirdLost = setInterval(() => {
 }, 5);
 
 let checkBirdCollide = setInterval(() => {
-  for (const elem of allPipes) {
-    if(elem.position < 100 && elem.position > -85){
-        if(birdFromTop < elem.topHeight || birdFromTop + bird.clientHeight > elem.topHeight + gap){
+  for (const pipe of allPipes) {
+    if(pipe.position < 100 && pipe.position > -85){
+        if(birdFromTop < pipe.topHeight || birdFromTop + bird.clientHeight > pipe.topHeight + gap){
             console.log("Bird collided");
             
         }
