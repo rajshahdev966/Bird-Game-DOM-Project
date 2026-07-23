@@ -141,7 +141,7 @@ const genPipes = () => {
 
 
 const birdLost = ()=>{
-    if(birdFromTop < -2 || birdFromTop > section.clientHeight){
+    if(birdFromTop < -2 || birdFromTop > document.body.clientHeight){
         GameLoss.play();
         clearInterval(gameForward)
         clearInterval(gravityInterval)
