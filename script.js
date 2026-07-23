@@ -124,7 +124,6 @@ const genPipes = () => {
         pipeTop.style.height = elem.topHeight + "px";
         pipeDown.style.height = elem.bottomHeight + "px";
       }
-      birdLost();
     }, 10);
   });
 };
