@@ -125,11 +125,6 @@ const genPipes = () => {
         pipeDown.style.height = elem.bottomHeight + "px";
       }
       birdLost();
-
-      if(elem.position < 100 && elem.position > -85){
-        console.log("Collide in X");
-        
-    }
     }, 10);
   });
 };
@@ -151,9 +146,9 @@ const birdLost = () => {
   }
 };
 
-// const pipeCollision = ()=>{
-//     if(elem.position < 100 && elem.position > -85){
-//         console.log("Collide in X");
+const pipeCollision = ()=>{
+    if(elem.position < 100 && elem.position > -85){
+        if()
         
-//     }
-// }
+    }
+}
