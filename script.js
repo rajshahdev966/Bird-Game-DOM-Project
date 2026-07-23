@@ -138,7 +138,8 @@ let checkBirdCollide = setInterval(() => {
     if(pipe.position < bird.clientWidth && pipe.position > -85){
         if(birdFromTop < pipe.topHeight || birdFromTop + bird.clientHeight > pipe.topHeight + gap){
             console.log("Bird collided");
-            
+                  gameOver();
+
         }
     }
 };
@@ -164,13 +165,3 @@ const gameOver = ()=>{
     birdFromTop = 200;
 }
 
-const pipeCollision = () => {
-  if (elem.position < 100 && elem.position > -85) {
-    if (
-      birdFromTop < elem.topHeight ||
-      birdFromTop + bird.clientHeight > elem.topHeight + gap
-    ) {
-      gameOver();
-    }
-  }
-};
