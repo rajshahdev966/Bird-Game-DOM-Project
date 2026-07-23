@@ -15,7 +15,7 @@ let birdFromTop = 200;
 let gravity = 3;
 let gravityInterval;
 let score = 0;
-
+scoreValue.textContent = score;
 
 const allPipes = [];
 const gap = 225;
