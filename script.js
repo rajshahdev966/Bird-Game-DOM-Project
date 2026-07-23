@@ -149,6 +149,7 @@ const birdLost = ()=>{
         GameLoss.play();
         clearInterval(gameForward)
         clearInterval(gravityInterval)
+        clearInterval(checkBirdLost)
         main.style.display = "none"
         section.style.display = "none"
         gameLost.style.display = "flex"
