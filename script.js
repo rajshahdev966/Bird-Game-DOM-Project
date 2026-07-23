@@ -80,16 +80,16 @@ const genPipes = () => {
         pipeDown.style.left = elem.position + "px";
 
         if(elem.position < -385){
-            elem.position += section.clientWidth + ((300 + 85) * 1);
+            elem.position += section.clientWidth + ((300 + 85));
+            
+            pipeTop.style.left = allPipes[7].position + (300) +  "px";
+            pipeDown.style.left = allPipes[7].position + (300) + "px";
             
             for(let j = 0; j <= 7; j++){
-                allPipes[]
+                let temp = allPipes[j];
+                allPipes[j] = allPipes[j+1];
+                allPipes[j+1] = allPipes[j]
             }
-
-
-            pipeTop.style.left = allPipes[7].position + (300 + 85) +  "px";
-            pipeDown.style.left = allPipes[7].position + (300 + 85) + "px";
-
             elem.topHeight = Math.random() * (section.clientHeight - gap - 50) + 50;
             elem.bottomHeight = section.clientHeight - elem.topHeight - gap;
 
