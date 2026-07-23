@@ -140,6 +140,7 @@ const birdLost = ()=>{
         GameLoss.play();
         clearInterval(gameForward)
         clearInterval(gravityInterval)
+        main
         
     }
 }

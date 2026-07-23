@@ -150,7 +150,10 @@ section{
 .game-lost-screen{
     height: 100%;
     width: 100%;
-    background-color: #14283db4;
+    background-image: url(./gameplay-back.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
     align-items: center;
     justify-content: center;
