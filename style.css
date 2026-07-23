@@ -126,8 +126,10 @@ section{
     width: 85px;
 }
 .upper-pipes{
-     background-image: url(./tunnel-flip.png);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
+    display: flex;
+}
+.cap-of-up{
+    background-image: url(./capOfUp.png);
+    width: 100%;
     
 }

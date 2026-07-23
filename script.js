@@ -66,7 +66,14 @@ const genPipes = () => {
     
     const capOfUp = document.createElement("div")
     const capOfDown = document.createElement("div")
-    const tunnelLenImg = document.createElement("div")
+    const tunnelBody = document.createElement("div")
+
+    capOfUp.className = "cap-of-up"
+    capOfDown.className = "cap-of-down"
+    tunnelBody.className = "tunnel-body-img"
+
+    pipeTop.append(tunnelBody, capOfUp)
+    pipeDown.append(capOfDown, tunnelBody)
 
     
 
