@@ -81,8 +81,14 @@ const genPipes = () => {
 
         if(elem.position < -385){
             elem.position += section.clientWidth + ((300 + 85) * 1);
-            pipeTop.style.left = allPipes[7].position  +  "px";
-            pipeDown.style.left = allPipes[7].position + "px";
+            
+            for(let j = 0; j <= 7; j++){
+                allPipes[]
+            }
+
+
+            pipeTop.style.left = allPipes[7].position + (300 + 85) +  "px";
+            pipeDown.style.left = allPipes[7].position + (300 + 85) + "px";
 
             elem.topHeight = Math.random() * (section.clientHeight - gap - 50) + 50;
             elem.bottomHeight = section.clientHeight - elem.topHeight - gap;
