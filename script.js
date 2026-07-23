@@ -7,12 +7,13 @@ const startBut = document.querySelector("#start-play-button");
 
 let birdFromTop = 200;
 let gravity = 3;
+let gravityInterval;
 
 const allPipes = [];
 const gap = 225;
 
 const birdGravity = () => {
-  setInterval(() => {
+  gravityInterval = setInterval(() => {
     birdFromTop += gravity;
     bird.style.top = birdFromTop + "px";
   }, 20);
@@ -138,6 +139,7 @@ const birdLost = ()=>{
     if(birdFromTop < -2){
         GameLoss.play();
         clearInterval(gameForward)
+        clearInterval(gravityInterval)
         
     }
 }
