@@ -125,6 +125,8 @@ const genPipes = () => {
         pipeDown.style.height = elem.bottomHeight + "px";
       }
     }, 10);
+    console.log(gameForward);
+    
   });
 };
 
