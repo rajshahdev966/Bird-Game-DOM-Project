@@ -147,7 +147,10 @@ let checkBirdCollide = setInterval(() => {
 const birdLost = () => {
   if (birdFromTop < 0 || birdFromTop > document.body.clientHeight - 50) {
     GameLoss.play();
-    clearInterval(gameForward);
+    for(const pipe of allPipes){
+        clearInterval(pipe.gameForward);
+        
+    }
     clearInterval(gravityInterval);
     clearInterval(checkBirdLost);
     main.style.display = "none";
