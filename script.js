@@ -135,7 +135,7 @@ const genPipes = () => {
 
 
 const birdLost = ()=>{
-    if(birdFromTop < 0){
+    if(birdFromTop < 2){
         GameLoss.play();
     }
 }
