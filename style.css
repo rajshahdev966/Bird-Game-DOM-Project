@@ -126,7 +126,10 @@ section{
     display: flex;
 }
 .cap-of-up{
-    background-image: url(./capOfUp.png);
+    background-image: url(./capOfDown.png);
+    background-repeat: no-repeat;
+    
     width: 100%;
+
 
 }
