@@ -127,7 +127,7 @@ const genPipes = () => {
       birdLost();
 
        if(elem.position < 100 && elem.position > -85){
-        if(birdFromTop < elem.topHeight || birdFromTop + 100 > elem.topHeight + gap){
+        if(birdFromTop < elem.topHeight || birdFromTop > elem.topHeight + gap){
             console.log("Bird collided");
             
         }
