@@ -148,6 +148,11 @@ const birdLost = ()=>{
         main.style.display = "none"
         section.style.display = "none"
         gameLost.style.display = "flex"
+        setTimeout(()=>{
+            
+        }, sounf)
+        GameLoss.pause()
+
 
         
     }
