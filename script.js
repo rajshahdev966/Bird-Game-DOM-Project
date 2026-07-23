@@ -87,10 +87,10 @@ const genPipes = () => {
                     }
                 }
 
-                elem.position += section.clientWidth + (385)
+                elem.position += 385 + lastPos;
                 
-                pipeTop.style.left = lastPos + (300 + 85) +  "px";
-                pipeDown.style.left = lastPos + (300 + 85) + "px";
+                pipeTop.style.left =  elem.position + (300 + 85) +  "px";
+                pipeDown.style.left = elem.position + (300 + 85) + "px";
 
                 
                 
