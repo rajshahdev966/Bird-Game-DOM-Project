@@ -57,7 +57,11 @@ const genPipes = () => {
     pipeTop.className = "pipe";
     pipeDown.className = "pipe";
 
-    let left = elem.position;
+    let left = elem.position; // Here we never stored the DOM object if in future we need it we have to sotre fit in object
+
+    elem.topElement = pipeTop;
+    elem.bottomElement =  pipeDown;
+
 
     pipeTop.style.height = elem.topHeight + "px";
     pipeDown.style.height = elem.bottomHeight + "px";
