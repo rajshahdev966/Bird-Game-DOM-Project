@@ -146,6 +146,11 @@ let checkBirdCollide = setInterval(() => {
 
 const birdLost = () => {
   if (birdFromTop < 0 || birdFromTop > document.body.clientHeight - 50) {
+    gameOver();
+  }
+};
+
+const gameOver = ()=>{
     GameLoss.play();
     for(const pipe of allPipes){
         clearInterval(pipe.gameForward);
@@ -157,8 +162,7 @@ const birdLost = () => {
     section.style.display = "none";
     gameLost.style.display = "flex";
     birdFromTop = 200;
-  }
-};
+}
 
 const pipeCollision = () => {
   if (elem.position < 100 && elem.position > -85) {
@@ -166,7 +170,7 @@ const pipeCollision = () => {
       birdFromTop < elem.topHeight ||
       birdFromTop + 100 > elem.topHeight + gap
     ) {
-      console.log("Bird collided");
+      gameOver();
     }
   }
 };
