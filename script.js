@@ -148,7 +148,10 @@ const birdLost = () => {
 
 const pipeCollision = ()=>{
     if(elem.position < 100 && elem.position > -85){
-        if()
+        if(birdFromTop < elem.topHeight || birdFromTop > elem.topHeight + gap){
+            console.log("Bird collided");
+            
+        }
         
     }
 }
