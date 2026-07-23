@@ -131,6 +131,20 @@ const genPipes = () => {
   });
 };
 
+const gameOver = () => {
+  GameLoss.play();
+  for (const pipe of allPipes) {
+    clearInterval(pipe.gameForward);
+  }
+  clearInterval(gravityInterval);
+  clearInterval(checkBirdLost);
+  clearInterval(checkBirdCollide);
+  main.style.display = "none";
+  section.style.display = "none";
+  gameLost.style.display = "flex";
+  birdFromTop = 200;
+};
+
 let checkBirdLost = setInterval(() => {
   birdLost();
 }, 5);
@@ -154,19 +168,6 @@ const birdLost = () => {
   }
 };
 
-const gameOver = () => {
-  GameLoss.play();
-  for (const pipe of allPipes) {
-    clearInterval(pipe.gameForward);
-  }
-  clearInterval(gravityInterval);
-  clearInterval(checkBirdLost);
-  clearInterval(checkBirdCollide);
-  main.style.display = "none";
-  section.style.display = "none";
-  gameLost.style.display = "flex";
-  birdFromTop = 200;
-};
 
 const scoreCount = () => {
     for(const pipe of allPipes){
