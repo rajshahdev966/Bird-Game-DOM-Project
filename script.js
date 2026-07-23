@@ -81,6 +81,7 @@ const genPipes = () => {
             left = elem.position;
             pipeTop.style.left = left + "px";
             pipeDown.style.left = left + "px";
+            elem.topHeight = Math.random() * (section.clientHeight - gap - 50) + 50;
         }
 
     }, 20)
