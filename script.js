@@ -75,7 +75,6 @@ const genPipes = () => {
     tunnelBody2.className = "tunnel-body-img"
 
     pipeTop.append(capOfUp, tunnelBody1)
-    
     pipeDown.append(capOfDown, tunnelBody2)
 
 
