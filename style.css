@@ -132,6 +132,7 @@ section{
 .upper-pipes{
     display: flex;
     flex-direction: column-reverse;
+    justify-content: space-between;
 }
 .cap-of-up{
     background-image: url(./capForUP.png);
