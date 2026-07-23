@@ -167,6 +167,7 @@ const gameOver = ()=>{
     }
     clearInterval(gravityInterval);
     clearInterval(checkBirdLost);
+    clearInterval(checkBirdCollide)
     main.style.display = "none";
     section.style.display = "none";
     gameLost.style.display = "flex";
