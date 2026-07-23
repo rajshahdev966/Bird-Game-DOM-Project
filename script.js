@@ -136,7 +136,7 @@ let checkBirdLost = setInterval(() => {
 let checkBirdCollide = setInterval(() => {
   for (const elem of allPipes) {
     if(elem.position < 100 && elem.position > -85){
-        if(birdFromTop < elem.topHeight || birdFromTop > elem.topHeight + gap){
+        if(birdFromTop < elem.topHeight || birdFromTop + bird.clientHeight > elem.topHeight + gap){
             console.log("Bird collided");
             
         }
