@@ -131,3 +131,6 @@ const genPipes = () => {
     };
 
 
+const birdLost = ()=>{
+    
+}
