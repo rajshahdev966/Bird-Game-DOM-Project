@@ -80,7 +80,7 @@ const genPipes = () => {
         pipeDown.style.left = elem.position + "px";
 
         if(elem.position < -385){
-            elem.position += 385;
+            elem.position += section.clientWidth + 385;
             
             pipeTop.style.left = allPipes[7].position + (300) +  "px";
             pipeDown.style.left = allPipes[7].position + (300) + "px";
