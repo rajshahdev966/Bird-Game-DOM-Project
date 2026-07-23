@@ -6,6 +6,10 @@ const bird = document.querySelector("#bird-play-img");
 const startBut = document.querySelector("#start-play-button");
 const gameLost = document.querySelector(".game-lost-screen")
 
+main.style.display = "flex"
+section.style.display = "none"
+gameLost.style.display = "none"
+
 let birdFromTop = 200;
 let gravity = 3;
 let gravityInterval;
