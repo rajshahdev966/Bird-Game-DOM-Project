@@ -107,8 +107,8 @@ section{
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100px;
-    height: 100px;
+    width: 32px;
+    height: 22px;
     position: absolute;
     top: 350px;
 
