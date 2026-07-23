@@ -79,7 +79,7 @@ const genPipes = () => {
             pipeTop.style.left = elem.position + "px";
             pipeDown.style.left = elem.position + "px";
 
-            let lastPos = 0;
+            let lastPos = allPipes[0].position;
             if(elem.position < -385){
                 for(const pipe of allPipes){
                     if(pipe.position > lastPos){
