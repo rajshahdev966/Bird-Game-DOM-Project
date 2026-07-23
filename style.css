@@ -117,11 +117,17 @@ section{
 .lower-pipes{
     height: 100px;
     bottom: 0px;
-}
-.pipe{
     background-image: url(./tunnel.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;
+}
+.pipe{
     position: absolute;
     width: 85px;
+}
+.upper-pipes{
+     background-image: url(./tunnel.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    bac
 }
