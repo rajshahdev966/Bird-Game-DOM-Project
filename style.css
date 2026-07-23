@@ -134,7 +134,7 @@ section{
     height: 150px;
 }
 .cap-of-down{
-    background-image: url(./capForUP.png);
+    background-image: url(./capForDown.png);
     background-repeat: no-repeat;
     background-size: 100%;
     width: 100%;
