@@ -170,9 +170,9 @@ let BirdCollide = () => {
 
 const scoreCount = () => {
     for(const pipe of allPipes){
-        if(pipe.position < ){
+        if(pipe.position < -pipe.pipeTop.clientWidth){
             if(!pipe.isScore){
-                !pipe.isScore;
+                pipe.isScore = !pipe.isScore;
                 score++;
                 scoreValue.textContent = score;
             }
