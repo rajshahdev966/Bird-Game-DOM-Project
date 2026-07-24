@@ -194,8 +194,11 @@ homeBut.addEventListener('click', ()=>{
 })
 tryBut.addEventListener('click', ()=>{
     window.location.reload();
-    gameStart();
-    birdGravity();
+    setTimeout(()=>{
+        gameStart();
+        birdGravity();
+
+    }, 50)
 
     
 })
