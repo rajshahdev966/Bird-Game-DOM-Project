@@ -184,6 +184,7 @@ const scoreCount = () => {
                 scoreValue.textContent = score;
                 liveScore.textContent = score;
                 birdPoint.play();
+                
             }
         }
     }
