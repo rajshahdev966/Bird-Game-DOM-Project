@@ -193,8 +193,11 @@ homeBut.addEventListener('click', ()=>{
     window.location.reload();
 })
 tryBut.addEventListener('click', ()=>{
-    allPipes = [];
-    gameStart();
-    birdGravity();
+    window.location.reload();
+    main.style.display = "none";
+section.style.display = "flex";
+gameLost.style.display = "none";
+gameStart();
+birdGravity();
     
 })
