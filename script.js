@@ -196,4 +196,5 @@ tryBut.addEventListener('click', ()=>{
     allPipes = [];
     gameStart();
     birdGravity();
+    
 })
