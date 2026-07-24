@@ -16,7 +16,7 @@ section.style.display = "none";
 gameLost.style.display = "none";
 
 let birdFromTop = 200;
-let gravity = 4;
+let gravity = 3;
 let gravityInterval;
 let score = 0;
 scoreValue.textContent = score;
@@ -62,7 +62,7 @@ startBut.addEventListener("click", () => {
 document.addEventListener("keydown", (e) => {
   // e.code gives Space and e.key gives {space}
   if (e.code == "Space") {
-    birdFromTop -= 80;
+    birdFromTop -= 60;
     bird.style.top = birdFromTop + "px";
     birdWings.cloneNode(true).play();
   }
