@@ -7,6 +7,9 @@ const startBut = document.querySelector("#start-play-button");
 const gameLost = document.querySelector(".game-lost-screen");
 const scoreValue = document.querySelector("#current-score")
 const liveScore = document.querySelector("#live-score-display")
+const homeBut = document.querySelector("#home-button")
+const tryBut = document.querySelector("#try-button")
+
 
 main.style.display = "flex";
 section.style.display = "none";
