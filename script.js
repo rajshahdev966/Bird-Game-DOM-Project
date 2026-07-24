@@ -31,6 +31,7 @@ const birdGravity = () => {
 
 const birdWings = new Audio("sfx_wing.mp3");
 const GameLoss = new Audio("sfx_die.mp3");
+const birdPoint = new Audio("sfx_point.mp3")
 
 const gameStart = () => {
   main.style.display = "none";
