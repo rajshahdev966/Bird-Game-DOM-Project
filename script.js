@@ -22,7 +22,7 @@ let score = 0;
 scoreValue.textContent = score;
 liveScore.textContent = score;
 
-const allPipes = [];
+let allPipes = [];
 const gap = 225;
 
 const birdGravity = () => {
@@ -193,6 +193,7 @@ homeBut.addEventListener('click', ()=>{
     window.location.reload();
 })
 tryBut.addEventListener('click', ()=>{
+    allPipes = [];
     gameStart();
     birdGravity();
 })
