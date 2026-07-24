@@ -112,7 +112,7 @@ section{
     height: 55px;
     position: absolute;
     top: 350px;
-    /* border: 2px solid black; */
+    border: 2px solid black;
 
 }
 .all-pipes{
@@ -128,7 +128,7 @@ section{
     position: absolute;
     z-index: 1;
     width: 85px;
-    /* border: 2px solid white; */
+    border: 2px solid white;
 }
 .upper-pipes{
     display: flex;
