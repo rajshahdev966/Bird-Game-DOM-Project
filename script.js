@@ -190,6 +190,7 @@ const scoreCount = () => {
                 birdPoint.play();
                 if(score> storedMaxScore){
                     localStorage.setItem("maxScore", JSON.stringify(score));
+                    maxScoreDisplay.textContent = score;
                 }
             }
         }
