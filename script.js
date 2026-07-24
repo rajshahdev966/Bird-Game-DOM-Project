@@ -39,6 +39,7 @@ const birdPoint = new Audio("sfx_point.mp3")
 const gameStart = () => {
   main.style.display = "none";
   section.style.display = "flex";
+  gameLost.style.display = "none";
   for (let i = 0; i <= 7; i++) {
     const topHeight = Math.random() * (section.clientHeight - gap - 50) + 50;
     let pipe = {
@@ -189,5 +190,8 @@ const scoreCount = () => {
 };
 
 homeBut.addEventListener('click', ()=>{
-    this.reload();
+    window.location.reload();
+})
+tryBut.addEventListener('click', ()=>{
+    gameStart();
 })
