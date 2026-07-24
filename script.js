@@ -194,4 +194,5 @@ homeBut.addEventListener('click', ()=>{
 })
 tryBut.addEventListener('click', ()=>{
     gameStart();
+    birdGravity();
 })
