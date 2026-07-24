@@ -6,6 +6,7 @@ const bird = document.querySelector("#bird-play-img");
 const startBut = document.querySelector("#start-play-button");
 const gameLost = document.querySelector(".game-lost-screen");
 const scoreValue = document.querySelector("#current-score")
+const liveScore = document.querySelector("#live-score-display")
 
 main.style.display = "flex";
 section.style.display = "none";
@@ -16,6 +17,7 @@ let gravity = 3;
 let gravityInterval;
 let score = 0;
 scoreValue.textContent = score;
+liveScore.textContent = score;
 
 const allPipes = [];
 const gap = 225;
@@ -175,6 +177,7 @@ const scoreCount = () => {
                 pipe.isScore = !pipe.isScore;
                 score++;
                 scoreValue.textContent = score;
+                liveScore.textContent = score;
             }
         }
     }

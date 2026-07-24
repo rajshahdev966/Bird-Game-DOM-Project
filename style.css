@@ -126,6 +126,7 @@ section{
 }
 .pipe{
     position: absolute;
+    z-index: 1;
     width: 85px;
     /* border: 2px solid white; */
 }
@@ -225,5 +226,14 @@ section{
     padding: 15px 40px ;
 }
 .score-counter{
-    
+    background-color: var(--bird);
+    padding: 5px;
+    height: min-content;
+    font-size: 40px;
+    font-weight: 500;
+    position: absolute;
+    z-index: 2;
+    border: 8px solid black;
+    top: 20px;
+    left: 20px;
 }
