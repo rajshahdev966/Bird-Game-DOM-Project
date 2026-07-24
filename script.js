@@ -11,7 +11,7 @@ const homeBut = document.querySelector("#home-button")
 const tryBut = document.querySelector("#try-button")
 const maxScoreDisplay = document.querySelector("#best-score")
 
-maxScoreDisplay.textContent = localStorage.getItem(maxScore) ?? 0;
+maxScoreDisplay.textContent = JSON.parse(localStorage.getItem("maxScore")) ?? 0;
 
 main.style.display = "flex";
 section.style.display = "none";
