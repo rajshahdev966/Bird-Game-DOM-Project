@@ -194,10 +194,8 @@ homeBut.addEventListener('click', ()=>{
 })
 tryBut.addEventListener('click', ()=>{
     window.location.reload();
-    main.style.display = "none";
-section.style.display = "flex";
-gameLost.style.display = "none";
-gameStart();
-birdGravity();
+    gameStart();
+    birdGravity();
+
     
 })
