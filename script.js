@@ -192,13 +192,3 @@ const scoreCount = () => {
 homeBut.addEventListener('click', ()=>{
     window.location.reload();
 })
-tryBut.addEventListener('click', ()=>{
-    window.location.reload();
-    setTimeout(()=>{
-        gameStart();
-        birdGravity();
-
-    }, 50)
-
-    
-})
