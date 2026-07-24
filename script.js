@@ -118,7 +118,6 @@ const genPipes = () => {
         }
 
         elem.isScore = false;
-        score++;
         elem.position = lastPos + 300 + 85;
 
 
