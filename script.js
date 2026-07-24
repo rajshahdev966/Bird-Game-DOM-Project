@@ -11,7 +11,9 @@ const homeBut = document.querySelector("#home-button")
 const tryBut = document.querySelector("#try-button")
 const maxScoreDisplay = document.querySelector("#best-score")
 
-maxScoreDisplay.textContent = JSON.parse(localStorage.getItem("maxScore")) ?? 0;
+
+let storedMaxScore = JSON.parse(localStorage.getItem("maxScore")) ?? 0;
+maxScoreDisplay.textContent = storedMaxScore;
 
 main.style.display = "flex";
 section.style.display = "none";
@@ -186,7 +188,9 @@ const scoreCount = () => {
                 scoreValue.textContent = score;
                 liveScore.textContent = score;
                 birdPoint.play();
-
+                if(score> storedMaxScore){
+                    localStorage.setItem("maxScore", JSON.stringify(score));
+                }
             }
         }
     }
