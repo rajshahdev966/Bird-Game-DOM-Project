@@ -9,7 +9,9 @@ const scoreValue = document.querySelector("#current-score")
 const liveScore = document.querySelector("#live-score-display")
 const homeBut = document.querySelector("#home-button")
 const tryBut = document.querySelector("#try-button")
+const maxScoreDisplay = document.querySelector("#best-score")
 
+maxScoreDisplay.textContent = localStorage.
 
 main.style.display = "flex";
 section.style.display = "none";
@@ -184,7 +186,7 @@ const scoreCount = () => {
                 scoreValue.textContent = score;
                 liveScore.textContent = score;
                 birdPoint.play();
-                
+
             }
         }
     }
