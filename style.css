@@ -49,7 +49,7 @@ main{
     justify-content: center;
     flex-direction: column;
 }
-.start-head-text{
+header{
     font-size: 40px;
     font-weight: 700;
     letter-spacing: 2px;
@@ -112,7 +112,7 @@ section{
     height: 55px;
     position: absolute;
     top: 350px;
-    border: 2px solid black;
+    /* border: 2px solid black;  */
 
 }
 .all-pipes{
@@ -128,7 +128,7 @@ section{
     position: absolute;
     z-index: 1;
     width: 85px;
-    border: 2px solid white;
+    /* border: 2px solid white; */
 }
 .upper-pipes{
     display: flex;
@@ -156,7 +156,7 @@ section{
     background-size: 100%;
 }
 
-.game-lost-screen{
+dialog{
     height: 100%;
     width: 100%;
     background-image: url(./gameplay-back.png);
@@ -226,7 +226,7 @@ section{
 
     padding: 15px 40px ;
 }
-.score-counter{
+aside{
     background-color: var(--bird);
     padding: 5px;
     height: min-content;

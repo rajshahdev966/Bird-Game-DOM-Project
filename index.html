@@ -11,28 +11,28 @@
 </head>
 <body>
     <main>
-        <div class="start-head-text">
-            <h1>TUNNEL <br><span>FLAP</span></h1>
+        <header>
+            <h1>TUNNEL<br><span>FLAP</span></h1>
         </div>
-        <img src="./flappy-bird.png" alt="" id="flappy-bird-start">
+        <img src="./flappy-bird.png" alt="Game Start Image" id="flappy-bird-start">
         <div class="start-control">
             <button id="start-play-button">PLAY</button>
             <!-- <button id="start-set-button">SETTING</button> -->
-        </div>
+        </header>
     </main>
     <section id="game-play-screen">
-        <img src="./flappy-bird.png" alt="" id="bird-play-img">      
-        <div class="score-counter"> <span id="live-score-display">012</span></div>  
+        <img src="./flappy-bird.png" alt="Bird Gameplay Character" id="bird-play-img">      
+        <aside> <span id="live-score-display">012</span></aside>  
     </section>
 
-    <div class="game-lost-screen">
+    <dialog>
         <div class="game-over-box">
             <div class="game-over-text">
                 <span>GAME <br></span>
                 <span style="color: var(--gold-light);">OVER</span>
             </div>
 
-            <img src="./game-over-bird.png" alt="">
+            <img src="./game-over-bird.png" alt="Game Over Bird">
             <div class="score-table">
                 <div class="score-text">
                     <span>SCORE</span>
@@ -49,7 +49,7 @@
                 <!-- <button id="try-button"> TRY AGAIN</button> -->
             </div>
         </div>
-    </div>
+    </dialog>
 
 
 
