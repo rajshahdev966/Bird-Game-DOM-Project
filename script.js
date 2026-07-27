@@ -40,9 +40,6 @@ const BIRD_SCORE_VOICE = new Audio("sfx_point.mp3");
    GAME INITIALIZATION
 ============================================= */
 
-main.style.display = "flex";
-section.style.display = "none";
-gameLost.style.display = "none";
 
 scoreValue.textContent = score;
 liveScore.textContent = score;
@@ -57,6 +54,7 @@ const displayUpdate = (forMain, forSection, forGameLost)=>{
   gameLost.style.display = forGameLost;
 }
 
+displayUpdate("flex", "none", "none")
 
 const pipeArrGen = () => {
   for (let i = 0; i < PIPE_AT_A_TIME; i++) {
@@ -230,9 +228,7 @@ const gameOver = () => {
   BIRD_DIE_VOICE.play();
   gameRunning = false;
   allIntClear();
-  main.style.display = "none";
-  section.style.display = "none";
-  gameLost.style.display = "flex";
+  displayUpdate("none", "none", "flex")
   birdFromTop = 200;
 };
 
