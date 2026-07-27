@@ -23,6 +23,7 @@ let gravityInterval;
 let score = 0;
 let allPipes = [];
 const gap = 225;
+const 
 
 
 /* ==========================================
