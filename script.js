@@ -33,7 +33,7 @@ const PIPE_WIDTH = 85;
 
 const BIRD_WING_VOICE = new Audio("sfx_wing.mp3");
 const BIRD_DIE_VOICE = new Audio("sfx_die.mp3");
-const birdPoint = new Audio("sfx_point.mp3");
+const BIRD_SCORE_VOICE = new Audio("sfx_point.mp3");
 
 /* ==========================================
    GAME INITIALIZATION
@@ -192,7 +192,7 @@ const scoreCount = () => {
                 score++;
                 scoreValue.textContent = score;
                 liveScore.textContent = score;
-                birdPoint.play();
+                BIRD_SCORE_VOICE.play();
                 if(score> storedMaxScore){
                     localStorage.setItem("maxScore", JSON.stringify(score));
                     maxScoreDisplay.textContent = score;
