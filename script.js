@@ -40,7 +40,6 @@ const BIRD_SCORE_VOICE = new Audio("sfx_point.mp3");
    GAME INITIALIZATION
 ============================================= */
 
-
 scoreValue.textContent = score;
 liveScore.textContent = score;
 
