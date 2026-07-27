@@ -139,6 +139,7 @@ const threePeiceGen = (elem, pipeTop, pipeDown) => {
 
   // THREE PEICE PIPE ENDING
   pipePosUpdate(elem, pipeTop, pipeDown);
+  pipeHeightUpdate(elem,pipeTop, pipeDown)
   pipeTop.style.top = 0;
   pipeDown.style.bottom = 0;
 
