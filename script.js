@@ -121,21 +121,21 @@ const threePeiceGen = (elem)=>{
     tunnelBody1.className = "tunnel-body-img";
     tunnelBody2.className = "tunnel-body-img";
 
-    elem.topElement.append(capOfUp, tunnelBody1);
-    elem.bottomElement.append(capOfDown, tunnelBody2);
+    pipeTop.append(capOfUp, tunnelBody1);
+    pipeDown.append(capOfDown, tunnelBody2);
 
     // THREE PEICE PIPE ENDING
 
-    elem.topElement.style.height = elem.topHeight + "px";
-    elem.bottomElement.style.height = elem.bottomHeight + "px";
+    pipeTop.style.height = elem.topHeight + "px";
+    pipeDown.style.height = elem.bottomHeight + "px";
 
-    elem.topElement.style.left = elem.position + "px";
-    elem.bottomElement.style.left = elem.position + "px";
+    pipeTop.style.left = elem.position + "px";
+    pipeDown.style.left = elem.position + "px";
 
-    elem.topElement.style.top = 0;
-    elem.bottomElement.style.bottom = 0;
+    pipeTop.style.top = 0;
+    pipeDown.style.bottom = 0;
 
-    section.append(elem.topElement, elem.bottomElement);
+    section.append(pipeTop, pipeDown);
 }
 
 const genPipes = () => {
@@ -152,8 +152,8 @@ const genPipes = () => {
     elem.bottomElement = pipeDown;
 
     // THREE PEICE PIPE WORKING
-
     threePeiceGen();
+    
 
     elem.gameForward = setInterval(() => {
       elem.position -= 2;
