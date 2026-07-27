@@ -213,14 +213,18 @@ const scoreCount = () => {
    GAME OVER FUNCTIONS
 ============================================= */
 
-const gameOver = () => {
-  BIRD_DIE_VOICE.play();
-  gameRunning = false;
+const allIntClear = () => {
   for (const pipe of allPipes) {
     clearInterval(pipe.gameForward);
   }
   clearInterval(gravityInterval);
   clearInterval(checkBirdStatus);
+};
+
+const gameOver = () => {
+  BIRD_DIE_VOICE.play();
+  gameRunning = false;
+  allIntClear();
   main.style.display = "none";
   section.style.display = "none";
   gameLost.style.display = "flex";
