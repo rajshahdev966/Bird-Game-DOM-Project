@@ -153,7 +153,7 @@ const genPipes = () => {
       pipeDown.style.left = elem.position + "px";
 
       let lastPos = allPipes[0].position;
-      if (elem.position < -385) {
+      if (elem.position < -(PIPE_SPACING + PIPE_WIDTH)) {
         for (const pipe of allPipes) {
           if (pipe.position > lastPos) {
             lastPos = pipe.position;
@@ -161,13 +161,13 @@ const genPipes = () => {
         }
 
         elem.isScore = false;
-        elem.position = lastPos + 300 + 85;
+        elem.position = lastPos + PIPE_SPACING + PIPE_WIDTH;
 
 
         pipeTop.style.left = elem.position + "px";
         pipeDown.style.left = elem.position + "px";
 
-        elem.topHeight = Math.random() * (section.clientHeight - GAP - 50) + 50;
+        elem.topHeight = Math.random() * (section.clientHeight - GAP - PIPE_MIN_HEIGHT) + PIPE_MIN_HEIGHT;
         elem.bottomHeight = section.clientHeight - elem.topHeight - GAP;
 
         pipeTop.style.height = elem.topHeight + "px";
@@ -186,7 +186,7 @@ maxScoreDisplay.textContent = storedMaxScore;
 
 const scoreCount = () => {
     for(const pipe of allPipes){
-        if(pipe.position < -85){
+        if(pipe.position < -PIPE_WIDTH){
             if(!pipe.isScore){
                 pipe.isScore = !pipe.isScore;
                 score++;
