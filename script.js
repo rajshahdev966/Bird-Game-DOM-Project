@@ -67,13 +67,12 @@ startBut.addEventListener("click", () => {
 
 document.addEventListener("keydown", (e) => {
   // e.code gives Space and e.key gives {space}
-  if(gameRunning){
+  if(!gameRunning)
     if (e.code == "Space") {
       birdFromTop -= 60;
       bird.style.top = birdFromTop + "px";
       birdWings.cloneNode(true).play();
     }
-  }
 });
 
 let gameForward;
