@@ -86,14 +86,30 @@ const birdGravity = () => {
    SCORE FUNCTIONS
 ============================================= */
 
-/* ==========================================
-   EVENT LISTENERS
-============================================= */
-
-
 let storedMaxScore = JSON.parse(localStorage.getItem("maxScore")) ?? 0;
 maxScoreDisplay.textContent = storedMaxScore;
 
+const scoreCount = () => {
+    for(const pipe of allPipes){
+        if(pipe.position < -85){
+            if(!pipe.isScore){
+                pipe.isScore = !pipe.isScore;
+                score++;
+                scoreValue.textContent = score;
+                liveScore.textContent = score;
+                birdPoint.play();
+                if(score> storedMaxScore){
+                    localStorage.setItem("maxScore", JSON.stringify(score));
+                    maxScoreDisplay.textContent = score;
+                }
+            }
+        }
+    }
+};
+
+/* ==========================================
+   EVENT LISTENERS
+============================================= */
 
 
 
@@ -222,23 +238,7 @@ let BirdCollide = () => {
   }
 };
 
-const scoreCount = () => {
-    for(const pipe of allPipes){
-        if(pipe.position < -85){
-            if(!pipe.isScore){
-                pipe.isScore = !pipe.isScore;
-                score++;
-                scoreValue.textContent = score;
-                liveScore.textContent = score;
-                birdPoint.play();
-                if(score> storedMaxScore){
-                    localStorage.setItem("maxScore", JSON.stringify(score));
-                    maxScoreDisplay.textContent = score;
-                }
-            }
-        }
-    }
-};
+
 
 homeBut.addEventListener('click', ()=>{
     window.location.reload();
