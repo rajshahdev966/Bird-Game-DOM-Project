@@ -1,5 +1,9 @@
 // GAME START FUNCTION DECIDING HOW WE WILL PRESS START AND GAME PLAY SCREEN WILL COME AFTER WHICH ONLY GRAVITY MOTION WILL START
 
+/* ==========================================
+   DOM ELEMENTS SELECTIONS
+============================================= */
+
 const main = document.querySelector("main");
 const section = document.querySelector("section");
 const bird = document.querySelector("#bird-play-img");
@@ -11,23 +15,59 @@ const homeBut = document.querySelector("#home-button")
 const tryBut = document.querySelector("#try-button")
 const maxScoreDisplay = document.querySelector("#best-score")
 
-
-let storedMaxScore = JSON.parse(localStorage.getItem("maxScore")) ?? 0;
-maxScoreDisplay.textContent = storedMaxScore;
-
-main.style.display = "flex";
-section.style.display = "none";
-gameLost.style.display = "none";
+/* ==========================================
+   GAME VARIABLES
+============================================= */
 
 let birdFromTop = 200;
 let gravity = 3;
 let gravityInterval;
 let score = 0;
+let allPipes = [];
+const gap = 225;
+
+
+/* ==========================================
+   GAME AUDIO
+============================================= */
+
+const birdWings = new Audio("sfx_wing.mp3");
+const GameLoss = new Audio("sfx_die.mp3");
+const birdPoint = new Audio("sfx_point.mp3");
+
+/* ==========================================
+   GAME INITIALIZATION
+============================================= */
+
+main.style.display = "flex";
+section.style.display = "none";
+gameLost.style.display = "none";
+
 scoreValue.textContent = score;
 liveScore.textContent = score;
 
-let allPipes = [];
-const gap = 225;
+let gameRunning = false;
+
+
+/* ==========================================
+   BIRD FUNCTIONS
+============================================= */
+
+/* ==========================================
+   PIPE FUNCTIONS
+============================================= */
+
+/* ==========================================
+   SCORE FUNCTIONS
+============================================= */
+
+/* ==========================================
+   EVENT LISTENERS
+============================================= */
+
+
+let storedMaxScore = JSON.parse(localStorage.getItem("maxScore")) ?? 0;
+maxScoreDisplay.textContent = storedMaxScore;
 
 const birdGravity = () => {
   gravityInterval = setInterval(() => {
@@ -36,10 +76,6 @@ const birdGravity = () => {
   }, 20);
 };
 
-const birdWings = new Audio("sfx_wing.mp3");
-const GameLoss = new Audio("sfx_die.mp3");
-const birdPoint = new Audio("sfx_point.mp3")
-let gameRunning = false;
 
 const gameStart = () => {
   main.style.display = "none";
