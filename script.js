@@ -7,11 +7,11 @@ const section = document.querySelector("section");
 const bird = document.querySelector("#bird-play-img");
 const startBut = document.querySelector("#start-play-button");
 const gameLost = document.querySelector("dialog");
-const scoreValue = document.querySelector("#current-score")
-const liveScore = document.querySelector("#live-score-display")
-const homeBut = document.querySelector("#home-button")
-const tryBut = document.querySelector("#try-button")
-const maxScoreDisplay = document.querySelector("#best-score")
+const scoreValue = document.querySelector("#current-score");
+const liveScore = document.querySelector("#live-score-display");
+const homeBut = document.querySelector("#home-button");
+const tryBut = document.querySelector("#try-button");
+const maxScoreDisplay = document.querySelector("#best-score");
 
 /* ==========================================
    GAME VARIABLES
@@ -51,9 +51,11 @@ let gameRunning = false;
 
 let gameForward;
 
-const pipeArrGen = ()=>{
+const pipeArrGen = () => {
   for (let i = 0; i < PIPE_AT_A_TIME; i++) {
-    const topHeight = Math.random() * (section.clientHeight - GAP - PIPE_MIN_HEIGHT) + PIPE_MIN_HEIGHT;
+    const topHeight =
+      Math.random() * (section.clientHeight - GAP - PIPE_MIN_HEIGHT) +
+      PIPE_MIN_HEIGHT;
     let pipe = {
       pipe: i,
       position: section.clientWidth + (PIPE_SPACING + PIPE_WIDTH) * i,
@@ -63,7 +65,7 @@ const pipeArrGen = ()=>{
     };
     allPipes.push(pipe);
   }
-}
+};
 
 const gameStart = () => {
   main.style.display = "none";
@@ -83,7 +85,7 @@ const birdGravity = () => {
     birdFromTop += gravity;
     bird.style.top = birdFromTop + "px";
   }, 20);
-}; 
+};
 
 let checkBirdStatus = setInterval(() => {
   BirdCollide();
@@ -110,35 +112,36 @@ let BirdCollide = () => {
    PIPE FUNCTIONS
 ============================================= */
 
-const pipePosUpdate = (elem, pipeTop, pipeDown)=>{
-    pipeTop.style.height = elem.topHeight + "px";
-    pipeDown.style.height = elem.bottomHeight + "px";
+const pipePosUpdate = (elem, pipeTop, pipeDown) => {
+  pipeTop.style.left = elem.position + "px";
+  pipeDown.style.left = elem.position + "px";
+};
+const pipeHeightUpdate = (elem, pipeTop, pipeDown) => {
+  pipeTop.style.height = elem.topHeight + "px";
+  pipeDown.style.height = elem.bottomHeight + "px";
+};
 
-    pipeTop.style.left = elem.position + "px";
-    pipeDown.style.left = elem.position + "px";
-}
-
-const threePeiceGen = (elem, pipeTop, pipeDown)=>{
+const threePeiceGen = (elem, pipeTop, pipeDown) => {
   const capOfUp = document.createElement("div");
-    const capOfDown = document.createElement("div");
-    const tunnelBody1 = document.createElement("div");
-    const tunnelBody2 = document.createElement("div");
+  const capOfDown = document.createElement("div");
+  const tunnelBody1 = document.createElement("div");
+  const tunnelBody2 = document.createElement("div");
 
-    capOfUp.className += "cap-of-up cap";
-    capOfDown.className += "cap-of-down cap";
-    tunnelBody1.className = "tunnel-body-img";
-    tunnelBody2.className = "tunnel-body-img";
+  capOfUp.className += "cap-of-up cap";
+  capOfDown.className += "cap-of-down cap";
+  tunnelBody1.className = "tunnel-body-img";
+  tunnelBody2.className = "tunnel-body-img";
 
-    pipeTop.append(capOfUp, tunnelBody1);
-    pipeDown.append(capOfDown, tunnelBody2);
+  pipeTop.append(capOfUp, tunnelBody1);
+  pipeDown.append(capOfDown, tunnelBody2);
 
-    // THREE PEICE PIPE ENDING
-    pipePosUpdate(elem, pipeTop, pipeDown);
-    pipeTop.style.top = 0;
-    pipeDown.style.bottom = 0;
+  // THREE PEICE PIPE ENDING
+  pipePosUpdate(elem, pipeTop, pipeDown);
+  pipeTop.style.top = 0;
+  pipeDown.style.bottom = 0;
 
-    section.append(pipeTop, pipeDown);
-}
+  section.append(pipeTop, pipeDown);
+};
 
 const genPipes = () => {
   allPipes.forEach((elem, index) => {
@@ -153,12 +156,10 @@ const genPipes = () => {
 
     // THREE PEICE PIPE WORKING
     threePeiceGen(elem, pipeTop, pipeDown);
-    
 
     elem.gameForward = setInterval(() => {
       elem.position -= 2;
-      pipeTop.style.left = elem.position + "px";
-      pipeDown.style.left = elem.position + "px";
+      pipePosUpdate(elem, pipeTop, pipeDown);
 
       let lastPos = allPipes[0].position;
       if (elem.position < -(PIPE_SPACING + PIPE_WIDTH)) {
@@ -171,10 +172,13 @@ const genPipes = () => {
         elem.isScore = false;
         elem.position = lastPos + PIPE_SPACING + PIPE_WIDTH;
 
-        elem.topHeight = Math.random() * (section.clientHeight - GAP - PIPE_MIN_HEIGHT) + PIPE_MIN_HEIGHT;
+        elem.topHeight =
+          Math.random() * (section.clientHeight - GAP - PIPE_MIN_HEIGHT) +
+          PIPE_MIN_HEIGHT;
         elem.bottomHeight = section.clientHeight - elem.topHeight - GAP;
 
         pipePosUpdate(elem, pipeTop, pipeDown);
+        pipeHeightUpdate(elem, pipeTop, pipeDown);
       }
     }, 10);
   });
@@ -188,21 +192,21 @@ let storedMaxScore = JSON.parse(localStorage.getItem("maxScore")) ?? 0;
 maxScoreDisplay.textContent = storedMaxScore;
 
 const scoreCount = () => {
-    for(const pipe of allPipes){
-        if(pipe.position < -PIPE_WIDTH){
-            if(!pipe.isScore){
-                pipe.isScore = !pipe.isScore;
-                score++;
-                scoreValue.textContent = score;
-                liveScore.textContent = score;
-                BIRD_SCORE_VOICE.play();
-                if(score> storedMaxScore){
-                    localStorage.setItem("maxScore", JSON.stringify(score));
-                    maxScoreDisplay.textContent = score;
-                }
-            }
+  for (const pipe of allPipes) {
+    if (pipe.position < -PIPE_WIDTH) {
+      if (!pipe.isScore) {
+        pipe.isScore = !pipe.isScore;
+        score++;
+        scoreValue.textContent = score;
+        liveScore.textContent = score;
+        BIRD_SCORE_VOICE.play();
+        if (score > storedMaxScore) {
+          localStorage.setItem("maxScore", JSON.stringify(score));
+          maxScoreDisplay.textContent = score;
         }
+      }
     }
+  }
 };
 
 /* ==========================================
@@ -227,7 +231,6 @@ const gameOver = () => {
    EVENT LISTENERS
 ============================================= */
 
-
 startBut.addEventListener("click", () => {
   gameStart();
   birdGravity();
@@ -235,15 +238,14 @@ startBut.addEventListener("click", () => {
 
 document.addEventListener("keydown", (e) => {
   // e.code gives Space and e.key gives {space}
-  if(!gameRunning) return;
-    if (e.code == "Space") {
-      birdFromTop -= 60;
-      bird.style.top = birdFromTop + "px";
-      BIRD_WING_VOICE.cloneNode(true).play();
-    }
+  if (!gameRunning) return;
+  if (e.code == "Space") {
+    birdFromTop -= 60;
+    bird.style.top = birdFromTop + "px";
+    BIRD_WING_VOICE.cloneNode(true).play();
+  }
 });
 
-
-homeBut.addEventListener('click', ()=>{
-    window.location.reload();
-})
+homeBut.addEventListener("click", () => {
+  window.location.reload();
+});
