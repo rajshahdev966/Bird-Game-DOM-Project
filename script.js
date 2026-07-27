@@ -32,7 +32,7 @@ const PIPE_WIDTH = 85;
 ============================================= */
 
 const BIRD_WING_VOICE = new Audio("sfx_wing.mp3");
-const GameLoss = new Audio("sfx_die.mp3");
+const BIRD_DIE_VOICE = new Audio("sfx_die.mp3");
 const birdPoint = new Audio("sfx_point.mp3");
 
 /* ==========================================
@@ -207,7 +207,7 @@ const scoreCount = () => {
 ============================================= */
 
 const gameOver = () => {
-  GameLoss.play();
+  BIRD_DIE_VOICE.play();
   gameRunning = false;
   for (const pipe of allPipes) {
     clearInterval(pipe.gameForward);
@@ -236,7 +236,7 @@ document.addEventListener("keydown", (e) => {
     if (e.code == "Space") {
       birdFromTop -= 60;
       bird.style.top = birdFromTop + "px";
-      birdWings.cloneNode(true).play();
+      BIRD_WING_VOICE.cloneNode(true).play();
     }
 });
 
