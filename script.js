@@ -110,6 +110,10 @@ let BirdCollide = () => {
    PIPE FUNCTIONS
 ============================================= */
 
+const threePeiceGen = ()=>{
+  
+}
+
 const genPipes = () => {
   allPipes.forEach((elem, index) => {
     const pipeTop = document.createElement("div");
