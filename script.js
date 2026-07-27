@@ -48,10 +48,16 @@ liveScore.textContent = score;
 
 let gameRunning = false;
 
-
 /* ==========================================
    BIRD FUNCTIONS
 ============================================= */
+
+const birdGravity = () => {
+  gravityInterval = setInterval(() => {
+    birdFromTop += gravity;
+    bird.style.top = birdFromTop + "px";
+  }, 20);
+}; 
 
 /* ==========================================
    PIPE FUNCTIONS
@@ -69,12 +75,7 @@ let gameRunning = false;
 let storedMaxScore = JSON.parse(localStorage.getItem("maxScore")) ?? 0;
 maxScoreDisplay.textContent = storedMaxScore;
 
-const birdGravity = () => {
-  gravityInterval = setInterval(() => {
-    birdFromTop += gravity;
-    bird.style.top = birdFromTop + "px";
-  }, 20);
-};
+
 
 
 const gameStart = () => {
