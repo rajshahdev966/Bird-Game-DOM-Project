@@ -1,5 +1,3 @@
-// GAME START FUNCTION DECIDING HOW WE WILL PRESS START AND GAME PLAY SCREEN WILL COME AFTER WHICH ONLY GRAVITY MOTION WILL START
-
 /* ==========================================
    DOM ELEMENTS SELECTIONS
 ============================================= */
@@ -48,6 +46,9 @@ liveScore.textContent = score;
 
 let gameRunning = false;
 
+let gameForward;
+
+
 const gameStart = () => {
   main.style.display = "none";
   section.style.display = "flex";
@@ -78,59 +79,30 @@ const birdGravity = () => {
   }, 20);
 }; 
 
-/* ==========================================
-   PIPE FUNCTIONS
-============================================= */
+let checkBirdStatus = setInterval(() => {
+  BirdCollide();
+  scoreCount();
+}, 5);
 
-/* ==========================================
-   SCORE FUNCTIONS
-============================================= */
-
-let storedMaxScore = JSON.parse(localStorage.getItem("maxScore")) ?? 0;
-maxScoreDisplay.textContent = storedMaxScore;
-
-const scoreCount = () => {
-    for(const pipe of allPipes){
-        if(pipe.position < -85){
-            if(!pipe.isScore){
-                pipe.isScore = !pipe.isScore;
-                score++;
-                scoreValue.textContent = score;
-                liveScore.textContent = score;
-                birdPoint.play();
-                if(score> storedMaxScore){
-                    localStorage.setItem("maxScore", JSON.stringify(score));
-                    maxScoreDisplay.textContent = score;
-                }
-            }
-        }
+let BirdCollide = () => {
+  for (const pipe of allPipes) {
+    if (pipe.position < bird.clientWidth && pipe.position > -85) {
+      if (
+        birdFromTop < pipe.topHeight ||
+        birdFromTop + bird.clientHeight > pipe.topHeight + gap
+      ) {
+        gameOver();
+      }
     }
+  }
+  if (birdFromTop < 0 || birdFromTop > document.body.clientHeight - 50) {
+    gameOver();
+  }
 };
 
 /* ==========================================
-   EVENT LISTENERS
+   PIPE FUNCTIONS
 ============================================= */
-
-
-
-
-
-startBut.addEventListener("click", () => {
-  gameStart();
-  birdGravity();
-});
-
-document.addEventListener("keydown", (e) => {
-  // e.code gives Space and e.key gives {space}
-  if(!gameRunning) return;
-    if (e.code == "Space") {
-      birdFromTop -= 60;
-      bird.style.top = birdFromTop + "px";
-      birdWings.cloneNode(true).play();
-    }
-});
-
-let gameForward;
 
 const genPipes = () => {
   allPipes.forEach((elem, index) => {
@@ -203,10 +175,34 @@ const genPipes = () => {
   });
 };
 
-let checkBirdStatus = setInterval(() => {
-  BirdCollide();
-  scoreCount();
-}, 5);
+/* ==========================================
+   SCORE FUNCTIONS
+============================================= */
+
+let storedMaxScore = JSON.parse(localStorage.getItem("maxScore")) ?? 0;
+maxScoreDisplay.textContent = storedMaxScore;
+
+const scoreCount = () => {
+    for(const pipe of allPipes){
+        if(pipe.position < -85){
+            if(!pipe.isScore){
+                pipe.isScore = !pipe.isScore;
+                score++;
+                scoreValue.textContent = score;
+                liveScore.textContent = score;
+                birdPoint.play();
+                if(score> storedMaxScore){
+                    localStorage.setItem("maxScore", JSON.stringify(score));
+                    maxScoreDisplay.textContent = score;
+                }
+            }
+        }
+    }
+};
+
+/* ==========================================
+   GAME OVER FUNCTIONS
+============================================= */
 
 const gameOver = () => {
   GameLoss.play();
@@ -222,22 +218,25 @@ const gameOver = () => {
   birdFromTop = 200;
 };
 
-let BirdCollide = () => {
-  for (const pipe of allPipes) {
-    if (pipe.position < bird.clientWidth && pipe.position > -85) {
-      if (
-        birdFromTop < pipe.topHeight ||
-        birdFromTop + bird.clientHeight > pipe.topHeight + gap
-      ) {
-        gameOver();
-      }
-    }
-  }
-  if (birdFromTop < 0 || birdFromTop > document.body.clientHeight - 50) {
-    gameOver();
-  }
-};
+/* ==========================================
+   EVENT LISTENERS
+============================================= */
 
+
+startBut.addEventListener("click", () => {
+  gameStart();
+  birdGravity();
+});
+
+document.addEventListener("keydown", (e) => {
+  // e.code gives Space and e.key gives {space}
+  if(!gameRunning) return;
+    if (e.code == "Space") {
+      birdFromTop -= 60;
+      bird.style.top = birdFromTop + "px";
+      birdWings.cloneNode(true).play();
+    }
+});
 
 
 homeBut.addEventListener('click', ()=>{
