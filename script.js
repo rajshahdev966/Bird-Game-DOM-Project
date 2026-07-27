@@ -110,6 +110,8 @@ let BirdCollide = () => {
    PIPE FUNCTIONS
 ============================================= */
 
+const 
+
 const threePeiceGen = (elem, pipeTop, pipeDown)=>{
   const capOfUp = document.createElement("div");
     const capOfDown = document.createElement("div");
