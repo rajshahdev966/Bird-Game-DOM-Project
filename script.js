@@ -24,7 +24,8 @@ let score = 0;
 let allPipes = [];
 const GAP = 225;
 const PIPE_MIN_HEIGHT = 50;
-
+const PIPE_SPACING = 300;
+const PIPE_WIDTH = 85;
 
 /* ==========================================
    GAME AUDIO
@@ -59,7 +60,7 @@ const gameStart = () => {
     const topHeight = Math.random() * (section.clientHeight - GAP - PIPE_MIN_HEIGHT) + PIPE_MIN_HEIGHT;
     let pipe = {
       pipe: i,
-      position: section.clientWidth + (300 + 85) * i,
+      position: section.clientWidth + (PIPE_SPACING + PIPE_WIDTH) * i,
       topHeight,
       bottomHeight: section.clientHeight - topHeight - GAP,
       isScore: false,
