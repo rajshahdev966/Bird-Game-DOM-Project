@@ -48,6 +48,25 @@ liveScore.textContent = score;
 
 let gameRunning = false;
 
+const gameStart = () => {
+  main.style.display = "none";
+  section.style.display = "flex";
+  gameLost.style.display = "none";
+  gameRunning = true;
+  for (let i = 0; i <= 7; i++) {
+    const topHeight = Math.random() * (section.clientHeight - gap - 50) + 50;
+    let pipe = {
+      pipe: i,
+      position: section.clientWidth + (300 + 85) * i,
+      topHeight,
+      bottomHeight: section.clientHeight - topHeight - gap,
+      isScore: false,
+    };
+    allPipes.push(pipe);
+  }
+  genPipes();
+};
+
 /* ==========================================
    BIRD FUNCTIONS
 ============================================= */
@@ -78,24 +97,7 @@ maxScoreDisplay.textContent = storedMaxScore;
 
 
 
-const gameStart = () => {
-  main.style.display = "none";
-  section.style.display = "flex";
-  gameLost.style.display = "none";
-  gameRunning = true;
-  for (let i = 0; i <= 7; i++) {
-    const topHeight = Math.random() * (section.clientHeight - gap - 50) + 50;
-    let pipe = {
-      pipe: i,
-      position: section.clientWidth + (300 + 85) * i,
-      topHeight,
-      bottomHeight: section.clientHeight - topHeight - gap,
-      isScore: false,
-    };
-    allPipes.push(pipe);
-  }
-  genPipes();
-};
+
 
 startBut.addEventListener("click", () => {
   gameStart();
