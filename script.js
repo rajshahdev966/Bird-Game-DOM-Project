@@ -51,6 +51,13 @@ let gameRunning = false;
 
 let gameForward;
 
+const displayUpdate = (forMain, forSection, forGameLost)=>{
+  main.style.display = forMain;
+  section.style.display = forSection;
+  gameLost.style.display = forGameLost;
+}
+
+
 const pipeArrGen = () => {
   for (let i = 0; i < PIPE_AT_A_TIME; i++) {
     const topHeight =
@@ -68,9 +75,7 @@ const pipeArrGen = () => {
 };
 
 const gameStart = () => {
-  main.style.display = "none";
-  section.style.display = "flex";
-  gameLost.style.display = "none";
+  displayUpdate("none", "flex", "none")
   gameRunning = true;
   pipeArrGen();
   genPipes();
