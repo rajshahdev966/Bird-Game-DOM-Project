@@ -39,11 +39,13 @@ const birdGravity = () => {
 const birdWings = new Audio("sfx_wing.mp3");
 const GameLoss = new Audio("sfx_die.mp3");
 const birdPoint = new Audio("sfx_point.mp3")
+let gameRunning = false;
 
 const gameStart = () => {
   main.style.display = "none";
   section.style.display = "flex";
   gameLost.style.display = "none";
+  gameRunning = true;
   for (let i = 0; i <= 7; i++) {
     const topHeight = Math.random() * (section.clientHeight - gap - 50) + 50;
     let pipe = {
@@ -65,10 +67,12 @@ startBut.addEventListener("click", () => {
 
 document.addEventListener("keydown", (e) => {
   // e.code gives Space and e.key gives {space}
-  if (e.code == "Space") {
-    birdFromTop -= 60;
-    bird.style.top = birdFromTop + "px";
-    birdWings.cloneNode(true).play();
+  if(gameRunning){
+    if (e.code == "Space") {
+      birdFromTop -= 60;
+      bird.style.top = birdFromTop + "px";
+      birdWings.cloneNode(true).play();
+    }
   }
 });
 
@@ -94,8 +98,8 @@ const genPipes = () => {
     const tunnelBody1 = document.createElement("div");
     const tunnelBody2 = document.createElement("div");
 
-    capOfUp.className = "cap-of-up";
-    capOfDown.className = "cap-of-down";
+    capOfUp.className += "cap-of-up cap";
+    capOfDown.className += "cap-of-down cap";
     tunnelBody1.className = "tunnel-body-img";
     tunnelBody2.className = "tunnel-body-img";
 
@@ -152,6 +156,7 @@ let checkBirdStatus = setInterval(() => {
 
 const gameOver = () => {
   GameLoss.play();
+  gameRunning = false;
   for (const pipe of allPipes) {
     clearInterval(pipe.gameForward);
   }

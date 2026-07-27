@@ -1,6 +1,9 @@
+/* --------------------------
+   GLOBAL RESET
+----------------------------- */
 * {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 html,
@@ -12,41 +15,106 @@ body {
     font-style: normal;
     overflow: hidden;
 }
+
+/* --------------------------
+   CSS VARIABLES
+----------------------------- */
+
 :root {
-    --panel:#101F31;
-    --panel-dark:#14283D;
-    
+    --panel:#101F31;    
     --gold:#E8C066;
     --gold-light:#F9D98C;
     --gold-dark:#C9963A;
-    
-    --cyan:#3FA8A4;
     --cyan-dark:#1E5B61;
-    
-    --green:#6D7745;
     --green-dark:#404B2A;
-    
     --bird:#F3C65D;
-    --bird-wing:#F7E5C4;
-    --beak:#D65A35;
-    
-    --border:#6E7D68;
-    
 }
+
+/* --------------------------
+   GLOBAL COMPONENTS
+----------------------------- */
+
 button{
-    font-family: "Press Start 2P", system-ui;
+    --gold-light:#F9D98C;
+    --gold:#E8C066;
+    --gold-dark:#C9963A;
+    --bg:#0E4956;
+    --bg-dark:#082C37;
+
+    padding:18px 60px;
+
+    font-family:"Press Start 2P", cursive;
+    font-size:32px;
+    color:var(--gold-light);
+
+    background:linear-gradient(
+        to bottom,
+        #135566,
+        #0E4956,
+        #0A3C47
+    );
+
+    border:4px solid var(--gold-dark);
+
+    clip-path:polygon(
+        8px 0,
+        calc(100% - 8px) 0,
+        100% 8px,
+        100% calc(100% - 8px),
+        calc(100% - 8px) 100%,
+        8px 100%,
+        0 calc(100% - 8px),
+        0 8px
+    );
+
+    box-shadow:
+        inset 0 0 0 2px #183847,
+        inset 0 2px 0 rgba(255,255,255,.15),
+        inset 0 -2px 0 rgba(0,0,0,.35),
+        0 3px 0 #28221a;
+
+    cursor:pointer;
+    transition:.12s;
 }
 
-/* FRONT STARTING PAGE OF GAME */
+button:hover{
+    transform:translateY(-2px);
+    filter:brightness(1.08);
+}
 
-main{
-    background-image: url(./desktop-back.png);
+button:active{
+    transform:translateY(2px);
+    box-shadow:
+        inset 0 0 0 2px #183847,
+        inset 0 3px 6px rgba(0,0,0,.35);
+}
+
+.full-bg-arrange{
     background-position: center;
     background-size: cover;
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 100%;
+    background-repeat: no-repeat;
+
+}
+.flex-center{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.cap{
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 100%;
+    height: 60px;
+}
+
+/* --------------------------
+   START SCREEN
+----------------------------- */
+
+main{
+    background-image: url(./desktop-back.png);
     flex-direction: column;
 }
 header{
@@ -56,7 +124,7 @@ header{
     text-align: center;
     color: var(--gold-light);
 }
-.start-head-text span {
+header span {
     color: var(--gold-dark);
 }
 #flappy-bird-start{
@@ -64,50 +132,20 @@ header{
     transform: scale(0.6);
 }
 .start-control{
-    display: flex;
-    align-items: center;
-    justify-content: center;
     gap: 20px;
     flex-direction: column;
 }
-#start-play-button{
-    border-radius: 1px;
-    border: 4px solid var(--gold-dark);
-    color: var(--gold-light);
-    background-color: var(--cyan-dark);
-    font-size: 30px;
-    font-weight: 700;
 
-    padding: 10px 20px ;
-
-}
-#start-set-button{
-    border-radius: 1px;
-    border: 4px solid var(--gold-dark);
-    color: var(--gold-light) ;
-    background-color: var(--cyan-dark);
-    clip-path: polygon(
-        (10px, 0)
-    );
-    font-size: 18px;
-    padding: 10px 20px;
-}
-
-/* GAME INTERFACE MAKING  */
+/* --------------------------
+   GAMEPLAY SCREEN
+-------------------------- */
 
 section{
     background-image: url(./gameplay-back.png);
-    background-position: center;
-    background-size: cover;
-    height: 100%;
-    width: 100%;
     display: none;
     position: relative;
 }
 #bird-play-img{
-    display: flex;
-    align-items: center;
-    justify-content: center;
     width: 80px;
     height: 55px;
     position: absolute;
@@ -115,10 +153,10 @@ section{
     /* border: 2px solid black;  */
 
 }
-.all-pipes{
-    width: 100%;
-    position: relative;
-}
+
+/* --------------------------
+   PIPE COMPONENTS
+----------------------------- */
 
 .lower-pipes{
     height: 100px;
@@ -137,17 +175,9 @@ section{
 }
 .cap-of-up{
     background-image: url(./capForUP.png);
-    background-repeat: no-repeat;
-    background-size: 100%;
-    width: 100%;
-    height: 60px;
 }
 .cap-of-down{
     background-image: url(./capForDown.png);
-    background-repeat: no-repeat;
-    background-size: 100%;
-    width: 100%;
-    height: 60px;
 }
 .tunnel-body-img{
     background-image: url(./tunnelLength.png);
@@ -156,24 +186,17 @@ section{
     background-size: 100%;
 }
 
+/* --------------------------
+   GAME OVER SCREEN
+----------------------------- */
+
 dialog{
-    height: 100%;
-    width: 100%;
     background-image: url(./gameplay-back.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
     display: none;
-    align-items: center;
-    justify-content: center;
 }
 .game-over-box{
     background-color: var(--panel);
-    display: flex;
     flex-direction: column;
-    /* justify-content: center; */
-    align-items: center;
-    justify-content: center;
     padding: 30px 100px;
     gap: 20px;
     border-radius: 10px;
@@ -210,12 +233,6 @@ dialog{
     justify-content: space-between;
     display: flex;
 }
-.game-over-buttons{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-
-}
 .game-over-buttons button{
     border-radius: 1px;
     border: 4px solid var(--gold-dark);
@@ -237,4 +254,7 @@ aside{
     border: 8px solid black;
     top: 20px;
     left: 20px;
+}
+.over-txt{
+    color: var(--gold-light);
 }

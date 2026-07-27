@@ -10,26 +10,34 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-    <main>
+
+<!-- GAME START SCREEN -->
+
+    <main class="full-bg-arrange flex-center">
         <header>
             <h1>TUNNEL<br><span>FLAP</span></h1>
-        </div>
+        </header>
         <img src="./flappy-bird.png" alt="Game Start Image" id="flappy-bird-start">
-        <div class="start-control">
+        <div class="start-control flex-center ">
             <button id="start-play-button">PLAY</button>
             <!-- <button id="start-set-button">SETTING</button> -->
-        </header>
+        </div>
     </main>
-    <section id="game-play-screen">
+
+<!-- GAME PLAY SCREEN -->
+
+    <section id="game-play-screen" class="full-bg-arrange">
         <img src="./flappy-bird.png" alt="Bird Gameplay Character" id="bird-play-img">      
         <aside> <span id="live-score-display">012</span></aside>  
     </section>
 
-    <dialog>
-        <div class="game-over-box">
+<!-- GAME OVER SCREEN -->
+
+    <dialog class="full-bg-arrange flex-center">
+        <div class="game-over-box flex-center">
             <div class="game-over-text">
                 <span>GAME <br></span>
-                <span style="color: var(--gold-light);">OVER</span>
+                <span class="over-txt">OVER</span>
             </div>
 
             <img src="./game-over-bird.png" alt="Game Over Bird">
