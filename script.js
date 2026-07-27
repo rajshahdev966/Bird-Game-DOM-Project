@@ -110,7 +110,7 @@ let BirdCollide = () => {
    PIPE FUNCTIONS
 ============================================= */
 
-const threePeiceGen = ()=>{
+const threePeiceGen = (elem)=>{
   
 }
 
