@@ -31,7 +31,7 @@ const PIPE_WIDTH = 85;
    GAME AUDIO
 ============================================= */
 
-const birdWings = new Audio("sfx_wing.mp3");
+const BIRD_WING_VOICE = new Audio("sfx_wing.mp3");
 const GameLoss = new Audio("sfx_die.mp3");
 const birdPoint = new Audio("sfx_point.mp3");
 
