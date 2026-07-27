@@ -22,8 +22,8 @@ let gravity = 3;
 let gravityInterval;
 let score = 0;
 let allPipes = [];
-const gap = 225;
-const 
+const GAP = 225;
+const PIPE_MIN_HEIGHT = 50;
 
 
 /* ==========================================
@@ -56,7 +56,7 @@ const gameStart = () => {
   gameLost.style.display = "none";
   gameRunning = true;
   for (let i = 0; i <= 7; i++) {
-    const topHeight = Math.random() * (section.clientHeight - gap - 50) + 50;
+    const topHeight = Math.random() * (section.clientHeight - gap - PIPE_MIN_HEIGHT) + PIPE_MIN_HEIGHT;
     let pipe = {
       pipe: i,
       position: section.clientWidth + (300 + 85) * i,
