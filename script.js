@@ -111,7 +111,31 @@ let BirdCollide = () => {
 ============================================= */
 
 const threePeiceGen = (elem)=>{
-  
+  const capOfUp = document.createElement("div");
+    const capOfDown = document.createElement("div");
+    const tunnelBody1 = document.createElement("div");
+    const tunnelBody2 = document.createElement("div");
+
+    capOfUp.className += "cap-of-up cap";
+    capOfDown.className += "cap-of-down cap";
+    tunnelBody1.className = "tunnel-body-img";
+    tunnelBody2.className = "tunnel-body-img";
+
+    elem.topElement.append(capOfUp, tunnelBody1);
+    elem.bottomElement.append(capOfDown, tunnelBody2);
+
+    // THREE PEICE PIPE ENDING
+
+    elem.topElement.style.height = elem.topHeight + "px";
+    elem.bottomElement.style.height = elem.bottomHeight + "px";
+
+    elem.topElement.style.left = elem.position + "px";
+    elem.bottomElement.style.left = elem.position + "px";
+
+    elem.topElement.style.top = 0;
+    elem.bottomElement.style.bottom = 0;
+
+    section.append(elem.topElement, elem.bottomElement);
 }
 
 const genPipes = () => {
@@ -129,31 +153,7 @@ const genPipes = () => {
 
     // THREE PEICE PIPE WORKING
 
-    const capOfUp = document.createElement("div");
-    const capOfDown = document.createElement("div");
-    const tunnelBody1 = document.createElement("div");
-    const tunnelBody2 = document.createElement("div");
-
-    capOfUp.className += "cap-of-up cap";
-    capOfDown.className += "cap-of-down cap";
-    tunnelBody1.className = "tunnel-body-img";
-    tunnelBody2.className = "tunnel-body-img";
-
-    pipeTop.append(capOfUp, tunnelBody1);
-    pipeDown.append(capOfDown, tunnelBody2);
-
-    // THREE PEICE PIPE ENDING
-
-    pipeTop.style.height = elem.topHeight + "px";
-    pipeDown.style.height = elem.bottomHeight + "px";
-
-    pipeTop.style.left = elem.position + "px";
-    pipeDown.style.left = elem.position + "px";
-
-    pipeTop.style.top = 0;
-    pipeDown.style.bottom = 0;
-
-    section.append(pipeTop, pipeDown);
+    threePeiceGen();
 
     elem.gameForward = setInterval(() => {
       elem.position -= 2;
