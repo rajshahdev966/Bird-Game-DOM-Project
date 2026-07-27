@@ -146,8 +146,6 @@ const genPipes = () => {
     pipeTop.className = "pipe upper-pipes";
     pipeDown.className = "pipe lower-pipes";
 
-    // Here we never stored the DOM object if in future we need it we have to sotre fit in object
-
     elem.topElement = pipeTop;
     elem.bottomElement = pipeDown;
 
