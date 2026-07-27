@@ -110,7 +110,7 @@ let BirdCollide = () => {
    PIPE FUNCTIONS
 ============================================= */
 
-const threePeiceGen = (elem)=>{
+const threePeiceGen = (elem, pipeTop, pipeDown)=>{
   const capOfUp = document.createElement("div");
     const capOfDown = document.createElement("div");
     const tunnelBody1 = document.createElement("div");
@@ -152,7 +152,7 @@ const genPipes = () => {
     elem.bottomElement = pipeDown;
 
     // THREE PEICE PIPE WORKING
-    threePeiceGen();
+    threePeiceGen(elem, pipeTop, pipeDown);
     
 
     elem.gameForward = setInterval(() => {
