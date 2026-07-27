@@ -26,6 +26,7 @@ const GAP = 225;
 const PIPE_MIN_HEIGHT = 50;
 const PIPE_SPACING = 300;
 const PIPE_WIDTH = 85;
+const PIPE_AT_A_TIME = 7;
 
 /* ==========================================
    GAME AUDIO
@@ -50,13 +51,8 @@ let gameRunning = false;
 
 let gameForward;
 
-
-const gameStart = () => {
-  main.style.display = "none";
-  section.style.display = "flex";
-  gameLost.style.display = "none";
-  gameRunning = true;
-  for (let i = 0; i <= 7; i++) {
+const pipeArrGen = ()=>{
+  for (let i = 0; i < PIPE_AT_A_TIME; i++) {
     const topHeight = Math.random() * (section.clientHeight - GAP - PIPE_MIN_HEIGHT) + PIPE_MIN_HEIGHT;
     let pipe = {
       pipe: i,
@@ -67,6 +63,14 @@ const gameStart = () => {
     };
     allPipes.push(pipe);
   }
+}
+
+const gameStart = () => {
+  main.style.display = "none";
+  section.style.display = "flex";
+  gameLost.style.display = "none";
+  gameRunning = true;
+  pipeArrGen();
   genPipes();
 };
 
