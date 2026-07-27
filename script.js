@@ -56,12 +56,12 @@ const gameStart = () => {
   gameLost.style.display = "none";
   gameRunning = true;
   for (let i = 0; i <= 7; i++) {
-    const topHeight = Math.random() * (section.clientHeight - gap - PIPE_MIN_HEIGHT) + PIPE_MIN_HEIGHT;
+    const topHeight = Math.random() * (section.clientHeight - GAP - PIPE_MIN_HEIGHT) + PIPE_MIN_HEIGHT;
     let pipe = {
       pipe: i,
       position: section.clientWidth + (300 + 85) * i,
       topHeight,
-      bottomHeight: section.clientHeight - topHeight - gap,
+      bottomHeight: section.clientHeight - topHeight - GAP,
       isScore: false,
     };
     allPipes.push(pipe);
@@ -90,7 +90,7 @@ let BirdCollide = () => {
     if (pipe.position < bird.clientWidth && pipe.position > -85) {
       if (
         birdFromTop < pipe.topHeight ||
-        birdFromTop + bird.clientHeight > pipe.topHeight + gap
+        birdFromTop + bird.clientHeight > pipe.topHeight + GAP
       ) {
         gameOver();
       }
@@ -166,8 +166,8 @@ const genPipes = () => {
         pipeTop.style.left = elem.position + "px";
         pipeDown.style.left = elem.position + "px";
 
-        elem.topHeight = Math.random() * (section.clientHeight - gap - 50) + 50;
-        elem.bottomHeight = section.clientHeight - elem.topHeight - gap;
+        elem.topHeight = Math.random() * (section.clientHeight - GAP - 50) + 50;
+        elem.bottomHeight = section.clientHeight - elem.topHeight - GAP;
 
         pipeTop.style.height = elem.topHeight + "px";
         pipeDown.style.height = elem.bottomHeight + "px";
