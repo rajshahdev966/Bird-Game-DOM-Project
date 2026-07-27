@@ -110,7 +110,13 @@ let BirdCollide = () => {
    PIPE FUNCTIONS
 ============================================= */
 
-const 
+const pipePosUpdate = (elem, pipeTop, pipeDown)=>{
+    pipeTop.style.height = elem.topHeight + "px";
+    pipeDown.style.height = elem.bottomHeight + "px";
+
+    pipeTop.style.left = elem.position + "px";
+    pipeDown.style.left = elem.position + "px";
+}
 
 const threePeiceGen = (elem, pipeTop, pipeDown)=>{
   const capOfUp = document.createElement("div");
@@ -127,13 +133,7 @@ const threePeiceGen = (elem, pipeTop, pipeDown)=>{
     pipeDown.append(capOfDown, tunnelBody2);
 
     // THREE PEICE PIPE ENDING
-
-    pipeTop.style.height = elem.topHeight + "px";
-    pipeDown.style.height = elem.bottomHeight + "px";
-
-    pipeTop.style.left = elem.position + "px";
-    pipeDown.style.left = elem.position + "px";
-
+    pipePosUpdate(elem, pipeTop, pipeDown);
     pipeTop.style.top = 0;
     pipeDown.style.bottom = 0;
 
@@ -171,15 +171,10 @@ const genPipes = () => {
         elem.isScore = false;
         elem.position = lastPos + PIPE_SPACING + PIPE_WIDTH;
 
-
-        pipeTop.style.left = elem.position + "px";
-        pipeDown.style.left = elem.position + "px";
-
         elem.topHeight = Math.random() * (section.clientHeight - GAP - PIPE_MIN_HEIGHT) + PIPE_MIN_HEIGHT;
         elem.bottomHeight = section.clientHeight - elem.topHeight - GAP;
 
-        pipeTop.style.height = elem.topHeight + "px";
-        pipeDown.style.height = elem.bottomHeight + "px";
+        pipePosUpdate(elem, pipeTop, pipeDown);
       }
     }, 10);
   });
