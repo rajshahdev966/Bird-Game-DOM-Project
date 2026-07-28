@@ -27,6 +27,7 @@ const PIPE_MIN_HEIGHT = 50;
 const PIPE_SPACING = 300;
 const PIPE_WIDTH = 85;
 const PIPE_AT_A_TIME = 7;
+const PIPE_MOVE_RATE = 2.8;
 
 /* ==========================================
    GAME AUDIO
@@ -157,7 +158,7 @@ const genPipes = () => {
 
 const updatePipes = ()=>{
   allPipes.forEach((elem, index)=>{
-    elem.position -= 2;
+    elem.position -= PIPE_MOVE_RATE;
     pipePosUpdate(elem, elem.topElement, elem.bottomElement);
 
     let lastPos = allPipes[0].position;
