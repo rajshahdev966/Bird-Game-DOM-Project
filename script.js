@@ -18,7 +18,7 @@ const maxScoreDisplay = document.querySelector("#best-score");
 ============================================= */
 
 let birdFromTop = 200;
-let gravity = 3;
+let gravity = 2.8;
 let gravityInterval;
 let score = 0;
 let allPipes = [];
