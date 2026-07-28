@@ -83,10 +83,8 @@ const gameStart = () => {
 ============================================= */
 
 const birdGravity = () => {
-  gravityInterval = setInterval(() => {
     birdFromTop += gravity;
     bird.style.top = birdFromTop + "px";
-  }, 20);
 };
 
 let checkBirdStatus = setInterval(() => {
@@ -187,9 +185,20 @@ const genPipes = () => {
   });
 };
 
+const 
+
+const movePipeLeft = ()=>{
+  allPipes.forEach((elem)=>{
+    elem.position -= 2;
+    pipePosUpdate(elem, pipeTop, pipeDown);
+
+  })
+}
+
 const gameLoop = setInterval(()=>{
+  birdGravity();
   
-},16)
+})
 
 
 
