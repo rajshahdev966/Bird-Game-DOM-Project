@@ -164,13 +164,10 @@ const genPipes = () => {
 
       let lastPos = allPipes[0].position;
       if (elem.position < -(PIPE_SPACING + PIPE_WIDTH)) {
-        for (const pipe of allPipes) {
-          if (pipe.position > lastPos) {
-            lastPos = pipe.position;
-          }
-        }
+        findLastPos();
 
         elem.isScore = false;
+        
         elem.position = lastPos + PIPE_SPACING + PIPE_WIDTH;
 
         elem.topHeight =
@@ -185,7 +182,13 @@ const genPipes = () => {
   });
 };
 
-const 
+const findLastPos = (lastPos)=>{
+  for (const pipe of allPipes) {
+          if (pipe.position > lastPos) {
+            lastPos = pipe.position;
+          }
+        }
+}
 
 const movePipeLeft = ()=>{
   allPipes.forEach((elem)=>{
