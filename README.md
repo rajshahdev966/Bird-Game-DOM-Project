@@ -24,7 +24,7 @@
 
 | Start Screen | Gameplay | Game Over |
 |:---:|:---:|:---:|
-| *(./tunnel.png)* | *(screenshot)* | *(screenshot)* |
+| ![Descriptive Alt Text](./tunnel.png) | *(screenshot)* | *(screenshot)* |
 
 </div>
 
