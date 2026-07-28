@@ -185,6 +185,10 @@ const genPipes = () => {
   });
 };
 
+const updatePipes = ()=>{
+  
+}
+
 
 const gameLoop = ()=>{setInterval(()=>{
   birdGravity()
