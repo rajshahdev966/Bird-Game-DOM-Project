@@ -87,11 +87,6 @@ const birdGravity = () => {
     bird.style.top = birdFromTop + "px";
 };
 
-let checkBirdStatus = setInterval(() => {
-  BirdCollide();
-  scoreCount();
-}, 5);
-
 let BirdCollide = () => {
   for (const pipe of allPipes) {
     if (pipe.position < bird.clientWidth && pipe.position > -85) {
@@ -157,31 +152,6 @@ const genPipes = () => {
 
     // THREE PEICE PIPE WORKING
     threePeiceGen(elem, pipeTop, pipeDown);
-
-    // elem.gameForward = setInterval(() => {
-    //   elem.position -= 2;
-    //   pipePosUpdate(elem, pipeTop, pipeDown);
-
-    //   let lastPos = allPipes[0].position;
-    //   if (elem.position < -(PIPE_SPACING + PIPE_WIDTH)) {
-    //     for (const pipe of allPipes) {
-    //       if (pipe.position > lastPos) {
-    //         lastPos = pipe.position;
-    //       }
-    //     }
-
-    //     elem.isScore = false;
-    //     elem.position = lastPos + PIPE_SPACING + PIPE_WIDTH;
-
-    //     elem.topHeight =
-    //       Math.random() * (section.clientHeight - GAP - PIPE_MIN_HEIGHT) +
-    //       PIPE_MIN_HEIGHT;
-    //     elem.bottomHeight = section.clientHeight - elem.topHeight - GAP;
-
-    //     pipePosUpdate(elem, pipeTop, pipeDown);
-    //     pipeHeightUpdate(elem, pipeTop, pipeDown);
-    //   }
-    // }, 10);
   });
 };
 
@@ -217,6 +187,8 @@ const updatePipes = ()=>{
 const gameLoop = ()=>{setInterval(()=>{
   birdGravity()
   updatePipes();
+  BirdCollide();
+  scoreCount();
 }, 16)
 }
 
@@ -249,19 +221,10 @@ const scoreCount = () => {
    GAME OVER FUNCTIONS
 ============================================= */
 
-const allIntClear = () => {
-  // for (const pipe of allPipes) {
-  //   clearInterval(pipe.gameForward);
-  // }
-  clearInterval(gameLoop);
-  clearInterval(gravityInterval);
-  clearInterval(checkBirdStatus);
-};
-
 const gameOver = () => {
   BIRD_DIE_VOICE.play();
   gameRunning = false;
-  allIntClear();
+  clearInterval(gameLoop)
   displayUpdate("none", "none", "flex")
   birdFromTop = 200;
 };
