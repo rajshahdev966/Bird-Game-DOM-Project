@@ -83,10 +83,8 @@ const gameStart = () => {
 ============================================= */
 
 const birdGravity = () => {
-  gravityInterval = setInterval(() => {
     birdFromTop += gravity;
     bird.style.top = birdFromTop + "px";
-  }, 20);
 };
 
 let checkBirdStatus = setInterval(() => {
@@ -188,8 +186,10 @@ const genPipes = () => {
 };
 
 
-
-
+const gameLoop = ()=>{setInterval(()=>{
+  birdGravity()
+}, 16)
+}
 
 /* ==========================================
    SCORE FUNCTIONS
@@ -242,7 +242,7 @@ const gameOver = () => {
 
 startBut.addEventListener("click", () => {
   gameStart();
-  birdGravity();
+  gameLoop();
 });
 
 document.addEventListener("keydown", (e) => {
