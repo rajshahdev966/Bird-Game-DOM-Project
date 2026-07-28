@@ -83,8 +83,10 @@ const gameStart = () => {
 ============================================= */
 
 const birdGravity = () => {
+  gravityInterval = setInterval(() => {
     birdFromTop += gravity;
     bird.style.top = birdFromTop + "px";
+  }, 20);
 };
 
 let checkBirdStatus = setInterval(() => {
@@ -159,14 +161,18 @@ const genPipes = () => {
     threePeiceGen(elem, pipeTop, pipeDown);
 
     elem.gameForward = setInterval(() => {
-      movePipeLeft(elem, pipeTop, pipeDown)
+      elem.position -= 2;
+      pipePosUpdate(elem, pipeTop, pipeDown);
 
       let lastPos = allPipes[0].position;
       if (elem.position < -(PIPE_SPACING + PIPE_WIDTH)) {
-        findLastPos();
+        for (const pipe of allPipes) {
+          if (pipe.position > lastPos) {
+            lastPos = pipe.position;
+          }
+        }
 
         elem.isScore = false;
-        
         elem.position = lastPos + PIPE_SPACING + PIPE_WIDTH;
 
         elem.topHeight =
@@ -181,26 +187,7 @@ const genPipes = () => {
   });
 };
 
-const findLastPos = (lastPos)=>{
-  for (const pipe of allPipes) {
-          if (pipe.position > lastPos) {
-            lastPos = pipe.position;
-          }
-        }
-}
 
-const movePipeLeft = ()=>{
-  allPipes.forEach((elem, pipeTop, pipeDown)=>{
-    elem.position -= 2;
-    pipePosUpdate(elem, pipeTop, pipeDown);
-
-  })
-}
-
-// const gameLoop = setInterval(()=>{
-//   birdGravity();
-  
-// })
 
 
 
