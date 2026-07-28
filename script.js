@@ -201,6 +201,10 @@ gameRunInt = setInterval(gameLoop, 10)
 let storedMaxScore = JSON.parse(localStorage.getItem("maxScore")) ?? 0;
 maxScoreDisplay.textContent = storedMaxScore;
 
+const scoreUpdate = ()=>{
+  
+}
+
 const scoreCount = () => {
   for (const pipe of allPipes) {
     if (pipe.position < -PIPE_WIDTH) {
