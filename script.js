@@ -17,7 +17,8 @@ const maxScoreDisplay = document.querySelector("#best-score");
    GAME VARIABLES
 ============================================= */
 
-let birdFromTop = 200;
+const BIRD_INITIAL_FROM_TOP = 200;
+let birdFromTop = BIRD_INITIAL_FROM_TOP;
 let gravity = 2;
 let gravityInterval;
 let score = 0;
@@ -111,11 +112,11 @@ let BirdCollide = () => {
 const pipePosUpdate = (elem, pipeTop, pipeDown) => {
   pipeTop.style.left = elem.position + "px";
   pipeDown.style.left = elem.position + "px";
-}; //Updates the position of any given 
+}; //Updates the position of pipe using left property
 const pipeHeightUpdate = (elem, pipeTop, pipeDown) => {
   pipeTop.style.height = elem.topHeight + "px";
   pipeDown.style.height = elem.bottomHeight + "px";
-};
+}; // Updates the height of the pipe so, used when we randomize the height 
 
 const threePeiceGen = (elem, pipeTop, pipeDown) => {
   const capOfUp = document.createElement("div");
@@ -131,14 +132,13 @@ const threePeiceGen = (elem, pipeTop, pipeDown) => {
   pipeTop.append(capOfUp, tunnelBody1);
   pipeDown.append(capOfDown, tunnelBody2);
 
-  // THREE PEICE PIPE ENDING
   pipePosUpdate(elem, pipeTop, pipeDown);
   pipeHeightUpdate(elem,pipeTop, pipeDown)
   pipeTop.style.top = 0;
   pipeDown.style.bottom = 0;
 
   section.append(pipeTop, pipeDown);
-};
+}; // Generate three parts for the pipe and append it in pipe
 
 const genPipes = () => {
   allPipes.forEach((elem, index) => {
@@ -154,7 +154,7 @@ const genPipes = () => {
     // THREE PEICE PIPE WORKING
     threePeiceGen(elem, pipeTop, pipeDown);
   });
-};
+}; // Generate all the pipes that are in array of allPipes
 
 const updatePipes = ()=>{
   allPipes.forEach((elem, index)=>{
@@ -181,7 +181,7 @@ const updatePipes = ()=>{
         pipeHeightUpdate(elem, elem.topElement, elem.bottomElement);
       }
   })
-}
+} //Updates the position by calling other functions and randomise the height
 
 let gameRunInt;
 
@@ -190,7 +190,7 @@ const gameLoop = ()=>{
   updatePipes();
   BirdCollide();
   scoreCount();
-}
+} //A single loop that runs to check and maintian the state of the game
 
 gameRunInt = setInterval(gameLoop, 10)
 
@@ -217,7 +217,7 @@ const scoreCount = () => {
       }
     }
   }
-};
+}; //Check that pipe is not scored twice and then increase the score accordingly
 
 /* ==========================================
    GAME OVER FUNCTIONS
@@ -228,8 +228,8 @@ const gameOver = () => {
   gameRunning = false;
   clearInterval(gameRunInt)
   displayUpdate("none", "none", "flex")
-  birdFromTop = 200;
-};
+  birdFromTop = BIRD_INITIAL_FROM_TOP;
+}; //Changes gameRunning state, clear interval and change the display, adjust the bird height
 
 /* ==========================================
    EVENT LISTENERS
