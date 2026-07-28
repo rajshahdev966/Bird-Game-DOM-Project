@@ -182,9 +182,10 @@ const updatePipes = ()=>{
   })
 }
 
+let gameRunInt;
 
-
-const gameLoop = ()=>{setInterval(()=>{
+const gameLoop = ()=>{
+  gameRunInt = setInterval(()=>{
   birdGravity()
   updatePipes();
   BirdCollide();
@@ -224,7 +225,7 @@ const scoreCount = () => {
 const gameOver = () => {
   BIRD_DIE_VOICE.play();
   gameRunning = false;
-  clearInterval(gameLoop)
+  clearInterval(gameRunInt)
   displayUpdate("none", "none", "flex")
   birdFromTop = 200;
 };
