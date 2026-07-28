@@ -52,7 +52,7 @@ const displayUpdate = (forMain, forSection, forGameLost)=>{
   main.style.display = forMain;
   section.style.display = forSection;
   gameLost.style.display = forGameLost;
-}
+} // Used for changing the display property 
 
 displayUpdate("flex", "none", "none")
 
@@ -70,14 +70,14 @@ const pipeArrGen = () => {
     };
     allPipes.push(pipe);
   }
-};
+}; // Used for generating the intial array of pipes and give them approptiate height
 
 const gameStart = () => {
   displayUpdate("none", "flex", "none")
   gameRunning = true;
   pipeArrGen();
   genPipes();
-};
+}; //Called at the start of the game and used to change display property, call pipe generation and call genPipes
 
 /* ==========================================
    BIRD FUNCTIONS
@@ -86,7 +86,7 @@ const gameStart = () => {
 const birdGravity = () => {
     birdFromTop += gravity;
     bird.style.top = birdFromTop + "px";
-};
+}; //Manipulate the gravity for bird
 
 let BirdCollide = () => {
   for (const pipe of allPipes) {
@@ -102,7 +102,7 @@ let BirdCollide = () => {
   if (birdFromTop < 0 || birdFromTop > document.body.clientHeight - 50) {
     gameOver();
   }
-};
+}; //Check whether the bird collide or not and also change the props like wise
 
 /* ==========================================
    PIPE FUNCTIONS
@@ -111,7 +111,7 @@ let BirdCollide = () => {
 const pipePosUpdate = (elem, pipeTop, pipeDown) => {
   pipeTop.style.left = elem.position + "px";
   pipeDown.style.left = elem.position + "px";
-};
+}; //Updates the position of any given 
 const pipeHeightUpdate = (elem, pipeTop, pipeDown) => {
   pipeTop.style.height = elem.topHeight + "px";
   pipeDown.style.height = elem.bottomHeight + "px";
@@ -201,10 +201,6 @@ gameRunInt = setInterval(gameLoop, 10)
 let storedMaxScore = JSON.parse(localStorage.getItem("maxScore")) ?? 0;
 maxScoreDisplay.textContent = storedMaxScore;
 
-const scoreUpdate = ()=>{
-  
-}
-
 const scoreCount = () => {
   for (const pipe of allPipes) {
     if (pipe.position < -PIPE_WIDTH) {
@@ -245,7 +241,6 @@ startBut.addEventListener("click", () => {
 });
 
 document.addEventListener("keydown", (e) => {
-  // e.code gives Space and e.key gives {space}
   if (!gameRunning) return;
   if (e.code == "Space") {
     birdFromTop -= 60;
