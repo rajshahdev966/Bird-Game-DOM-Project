@@ -186,15 +186,13 @@ const updatePipes = ()=>{
 let gameRunInt;
 
 const gameLoop = ()=>{
-  gameRunInt = setInterval(()=>{
   birdGravity()
   updatePipes();
   BirdCollide();
   scoreCount();
-}, 10)
 }
 
-game
+gameRunInt = setInterval(gameLoop, 10)
 
 /* ==========================================
    SCORE FUNCTIONS
