@@ -10,7 +10,26 @@
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](#)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](#)
 
-<div> <button style="padding: 8px 12px; font-size:18px; ">LIVE DEMO</button> </div>
+<div> <button style="padding:9px 30px; font-size:32px; background:linear-gradient(
+        to bottom,
+        #135566,
+        #0E4956,
+        #0A3C47
+    );     border:4px solid var(--gold-dark);  box-shadow:
+        inset 0 0 0 2px #183847,
+        inset 0 2px 0 rgba(255,255,255,.15),
+        inset 0 -2px 0 rgba(0,0,0,.35),
+        0 3px 0 #28221a; clip-path:polygon(
+        8px 0,
+        calc(100% - 8px) 0,
+        100% 8px,
+        100% calc(100% - 8px),
+        calc(100% - 8px) 100%,
+        8px 100%,
+        0 calc(100% - 8px),
+        0 8px
+    );
+ "><a href="https://tunnelflagdomgame.vercel.app/" style=" color:#F9D98C;">LIVE DEMO</a></button> </div>
 
 </div>
 
