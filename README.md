@@ -10,7 +10,7 @@
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](#)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](#)
 
-**[LIVE DEMO](URL)** · **Report Bug** · **Request Feature**
+<div> <button style="padding: 8px 12px; font-size:18px; ">LIVE DEMO</button> </div>
 
 </div>
 
