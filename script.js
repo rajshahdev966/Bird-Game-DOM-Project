@@ -186,6 +186,7 @@ const updatePipes = ()=>{
 let gameRunInt;
 
 const gameLoop = ()=>{
+  if(!gameRunning) return;
   birdGravity()
   updatePipes();
   BirdCollide();
