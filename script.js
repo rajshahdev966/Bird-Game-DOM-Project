@@ -159,8 +159,7 @@ const genPipes = () => {
     threePeiceGen(elem, pipeTop, pipeDown);
 
     elem.gameForward = setInterval(() => {
-      elem.position -= 2;
-      pipePosUpdate(elem, pipeTop, pipeDown);
+      movePipeLeft(elem, pipeTop, pipeDown)
 
       let lastPos = allPipes[0].position;
       if (elem.position < -(PIPE_SPACING + PIPE_WIDTH)) {
@@ -191,17 +190,17 @@ const findLastPos = (lastPos)=>{
 }
 
 const movePipeLeft = ()=>{
-  allPipes.forEach((elem)=>{
+  allPipes.forEach((elem, pipeTop, pipeDown)=>{
     elem.position -= 2;
     pipePosUpdate(elem, pipeTop, pipeDown);
 
   })
 }
 
-const gameLoop = setInterval(()=>{
-  birdGravity();
+// const gameLoop = setInterval(()=>{
+//   birdGravity();
   
-})
+// })
 
 
 
