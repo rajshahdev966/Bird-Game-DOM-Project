@@ -39,8 +39,6 @@
 
 <div align="center">
 
-*(Add Gameplay GIF here)*
-
 | Start Screen | Gameplay | Game Over |
 |:---:|:---:|:---:|
 | ![](./screenshots/Screenshot%202026-07-26%20163054.png) | ![](./screenshots/Screenshot%202026-07-26%20163440.png) | *![](./screenshots/Screenshot%202026-07-26%20163525.png)* |
