@@ -158,37 +158,38 @@ const genPipes = () => {
     // THREE PEICE PIPE WORKING
     threePeiceGen(elem, pipeTop, pipeDown);
 
-    elem.gameForward = setInterval(() => {
-      elem.position -= 2;
-      pipePosUpdate(elem, pipeTop, pipeDown);
+    // elem.gameForward = setInterval(() => {
+    //   elem.position -= 2;
+    //   pipePosUpdate(elem, pipeTop, pipeDown);
 
-      let lastPos = allPipes[0].position;
-      if (elem.position < -(PIPE_SPACING + PIPE_WIDTH)) {
-        for (const pipe of allPipes) {
-          if (pipe.position > lastPos) {
-            lastPos = pipe.position;
-          }
-        }
+    //   let lastPos = allPipes[0].position;
+    //   if (elem.position < -(PIPE_SPACING + PIPE_WIDTH)) {
+    //     for (const pipe of allPipes) {
+    //       if (pipe.position > lastPos) {
+    //         lastPos = pipe.position;
+    //       }
+    //     }
 
-        elem.isScore = false;
-        elem.position = lastPos + PIPE_SPACING + PIPE_WIDTH;
+    //     elem.isScore = false;
+    //     elem.position = lastPos + PIPE_SPACING + PIPE_WIDTH;
 
-        elem.topHeight =
-          Math.random() * (section.clientHeight - GAP - PIPE_MIN_HEIGHT) +
-          PIPE_MIN_HEIGHT;
-        elem.bottomHeight = section.clientHeight - elem.topHeight - GAP;
+    //     elem.topHeight =
+    //       Math.random() * (section.clientHeight - GAP - PIPE_MIN_HEIGHT) +
+    //       PIPE_MIN_HEIGHT;
+    //     elem.bottomHeight = section.clientHeight - elem.topHeight - GAP;
 
-        pipePosUpdate(elem, pipeTop, pipeDown);
-        pipeHeightUpdate(elem, pipeTop, pipeDown);
-      }
-    }, 10);
+    //     pipePosUpdate(elem, pipeTop, pipeDown);
+    //     pipeHeightUpdate(elem, pipeTop, pipeDown);
+    //   }
+    // }, 10);
   });
 };
 
 const updatePipes = ()=>{
   allPipes.forEach((elem, index)=>{
     elem.position -= 2;
-    pipePosUpdate(elem, elem.topElement, elem.bottomElement)
+    pipePosUpdate(elem, elem.topElement, elem.bottomElement);
+
     let lastPos = allPipes[0].position;
     if (elem.position < -(PIPE_SPACING + PIPE_WIDTH)) {
         for (const pipe of allPipes) {
@@ -215,6 +216,7 @@ const updatePipes = ()=>{
 
 const gameLoop = ()=>{setInterval(()=>{
   birdGravity()
+  updatePipes();
 }, 16)
 }
 
@@ -248,9 +250,10 @@ const scoreCount = () => {
 ============================================= */
 
 const allIntClear = () => {
-  for (const pipe of allPipes) {
-    clearInterval(pipe.gameForward);
-  }
+  // for (const pipe of allPipes) {
+  //   clearInterval(pipe.gameForward);
+  // }
+  clearInterval(gameLoop);
   clearInterval(gravityInterval);
   clearInterval(checkBirdStatus);
 };
