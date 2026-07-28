@@ -24,7 +24,7 @@
 
 | Start Screen | Gameplay | Game Over |
 |:---:|:---:|:---:|
-| ![Descriptive Alt Text](./screenshots/Screenshot%202026-07-26%20163054.png) | *(screenshot)* | *(screenshot)* |
+| ![Descriptive Alt Text](./screenshots/Screenshot%202026-07-26%20163054.png) | *()* | *(screenshot)* |
 
 </div>
 
