@@ -24,7 +24,7 @@
 
 | Start Screen | Gameplay | Game Over |
 |:---:|:---:|:---:|
-| ![Descriptive Alt Text](./screenshots/Screenshot%202026-07-26%20163054.png) | ![Descriptive Alt Text](./screenshots/Screenshot%202026-07-26%20163054.png) | *(screenshot)* |
+| ![](./screenshots/Screenshot%202026-07-26%20163054.png) | ![](./screenshots/Screenshot%202026-07-26%20163440.png) | *![](./screenshots/Screenshot%202026-07-26%20163525.png)* |
 
 </div>
 
@@ -287,19 +287,13 @@ Core lessons reinforced:
 
 ---
 
-## 👨‍💻 Author
+## 👨‍💻 About me
 
 **Raj Shah**
 Frontend Developer focused on building performant, scalable, and well-architected web applications with modern JavaScript.
 
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](#)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](#)
-
----
-
-## 📄 License
-
-Distributed under the **MIT License**. See `LICENSE` for more information.
 
 ---
 
