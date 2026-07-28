@@ -18,7 +18,7 @@ const maxScoreDisplay = document.querySelector("#best-score");
 ============================================= */
 
 let birdFromTop = 200;
-let gravity = 2.8;
+let gravity = 2;
 let gravityInterval;
 let score = 0;
 let allPipes = [];
@@ -27,7 +27,7 @@ const PIPE_MIN_HEIGHT = 50;
 const PIPE_SPACING = 300;
 const PIPE_WIDTH = 85;
 const PIPE_AT_A_TIME = 7;
-const PIPE_MOVE_RATE = 2.8;
+const PIPE_MOVE_RATE = 2.2;
 
 /* ==========================================
    GAME AUDIO
@@ -191,7 +191,7 @@ const gameLoop = ()=>{
   updatePipes();
   BirdCollide();
   scoreCount();
-}, 16)
+}, 10)
 }
 
 /* ==========================================
