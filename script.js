@@ -30,7 +30,6 @@ const PIPE_WIDTH = 85;
 const PIPE_AT_A_TIME = 7;
 const PIPE_MOVE_RATE = 2.2;
 let birdVelocity = 0;
-let birdAngle = 0;
 
 
 /* ==========================================
@@ -110,9 +109,9 @@ let BirdCollide = () => {
 }; //Check whether the bird collide or not and also change the props like wise
 
 const updateBirdAngle = ()=>{
-  birdAngle = birdVelocity * 8 ///////////////////////////
-  if(birdAngle <-30) birdAngle = -30;
-  else if(birdAngle > 60) birdAngle = 60;
+  let angle = birdVelocity * 8 ///////////////////////////
+  if(angle <-30) angle = -30;
+  if(angle > 60) angle = 60;
   bird.style.transform = `rotate(${birdAngle}deg)`;
 }
 
