@@ -91,8 +91,6 @@ bird.style.left = `${BIRD_X_POS}px`;
 
 const birdGravity = () => {
     birdVelocity += gravity;
-   // bird.style.top = birdFromTop + "px";
-
   }; //Manipulate the gravity for bird 
 
 let BirdCollide = () => {
@@ -106,13 +104,16 @@ let BirdCollide = () => {
       }
     }
   }
-  if (birdFromTop < 0 || birdFromTop > document.body.clientHeight - 50) {//////////////////////////////////////////
+  if (birdFromTop < 0 || birdFromTop > document.body.clientHeight - PIPE_MIN_HEIGHT) {//////////////////////////////////////////
     gameOver();
   }
 }; //Check whether the bird collide or not and also change the props like wise
 
 const updateBirdAngle = ()=>{
-  
+  birdAngle = birdVelocity * 0.5 ///////////////////////////
+  if(birdAngle <-30) birdAngle = -30;
+  else if(birdAngle > 60) birdAngle = 60;
+  bird.style.transform = `rotate(${birdAngle}deg)`;
 }
 
 
@@ -207,8 +208,7 @@ const gameLoop = ()=>{
   birdFromTop += birdVelocity;
   bird.style.top = birdFromTop + "px";
 
-  birdAngle = birdAngleByGravity + birdAngleByJump;
-  bird.style.transform = `rotate(${birdAngle}deg)`
+ updateBirdAngle();
 } //A single loop that runs to check and maintian the state of the game
 
 gameRunInt = setInterval(gameLoop, 10)
