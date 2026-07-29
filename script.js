@@ -19,7 +19,7 @@ const maxScoreDisplay = document.querySelector("#best-score");
 
 const BIRD_INITIAL_FROM_TOP = 200;
 let birdFromTop = BIRD_INITIAL_FROM_TOP;
-let gravity = 0.05;
+let gravity = 0.25;
 let gravityInterval;
 let score = 0;
 let allPipes = [];
@@ -253,7 +253,7 @@ startBut.addEventListener("click", () => {
 document.addEventListener("keydown", (e) => {
   if (!gameRunning) return;
   if (e.code == "Space") {
-    birdVelocity -= 4;
+    birdVelocity -= 5.5;
     // bird.style.top = birdFromTop + "px";
     BIRD_WING_VOICE.cloneNode(true).play();
   }
