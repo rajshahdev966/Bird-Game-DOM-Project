@@ -89,7 +89,7 @@ bird.style.left = `${BIRD_X_POS}px`;
 
 const birdGravity = () => {
     birdFromTop += gravity;
-    bird.style.top = birdFromTop + "px";
+    // bird.style.top = birdFromTop + "px";
 
   }; //Manipulate the gravity for bird 
 
@@ -195,7 +195,7 @@ const gameLoop = ()=>{
   updatePipes();
   BirdCollide();
   scoreCount();
-  bird
+  bird.style.top = birdFromTop + "px";
 } //A single loop that runs to check and maintian the state of the game
 
 gameRunInt = setInterval(gameLoop, 10)
@@ -251,7 +251,7 @@ document.addEventListener("keydown", (e) => {
   if (!gameRunning) return;
   if (e.code == "Space") {
     birdFromTop -= 60;
-    bird.style.top = birdFromTop + "px";
+    // bird.style.top = birdFromTop + "px";
     BIRD_WING_VOICE.cloneNode(true).play();
     bird.style.transform = `rotate(-20deg)`;
   }
