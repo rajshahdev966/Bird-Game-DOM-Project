@@ -94,7 +94,7 @@ const birdGravity = () => {
 
 let BirdCollide = () => {
   for (const pipe of allPipes) {
-    if (pipe.position < section.clientWidth * 0.3 + bird.clientWidth && pipe.position > section.clientWidth * 0.3) {///////////////////////////////////////////////////////
+    if (pipe.position < (section.clientWidth * 0.3) + bird.clientWidth && pipe.position > section.clientWidth * 0.3) {///////////////////////////////////////////////////////
       if (
         birdFromTop < pipe.topHeight ||
         birdFromTop + bird.clientHeight > pipe.topHeight + GAP
@@ -208,7 +208,7 @@ maxScoreDisplay.textContent = storedMaxScore;
 
 const scoreCount = () => {
   for (const pipe of allPipes) {
-    if (pipe.position < -PIPE_WIDTH) {////////////////////////////////////////////////////////////
+    if (pipe.position < (section.clientWidth * 0.3) + (bird.clientWidth)) {////////////////////////////////////////////////////////////
       if (!pipe.isScore) {
         pipe.isScore = !pipe.isScore;
         score++;
