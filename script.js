@@ -31,8 +31,7 @@ const PIPE_AT_A_TIME = 7;
 const PIPE_MOVE_RATE = 2.2;
 let birdVelocity = 0;
 let birdAngle = 0;
-let birdAngleByGravity = 0;
-let birdAngleByJump = 0;
+
 
 /* ==========================================
    GAME AUDIO
@@ -92,7 +91,6 @@ bird.style.left = `${BIRD_X_POS}px`;
 
 const birdGravity = () => {
     birdVelocity += gravity;
-    birdAngleByGravity += 60;
    // bird.style.top = birdFromTop + "px";
 
   }; //Manipulate the gravity for bird 
@@ -112,6 +110,13 @@ let BirdCollide = () => {
     gameOver();
   }
 }; //Check whether the bird collide or not and also change the props like wise
+
+const updateBirdAngle = ()=>{
+  
+}
+
+
+
 
 /* ==========================================
    PIPE FUNCTIONS
@@ -259,8 +264,6 @@ document.addEventListener("keydown", (e) => {
   if (!gameRunning) return;
   if (e.code == "Space") {
     birdVelocity -= 4.8;
-    birdAngleByJump -= -60
-    // bird.style.top = birdFromTop + "px";
     BIRD_WING_VOICE.cloneNode(true).play();
   }
 });
