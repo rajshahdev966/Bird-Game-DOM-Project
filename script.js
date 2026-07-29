@@ -112,7 +112,7 @@ const updateBirdAngle = ()=>{
   let angle = birdVelocity * 8 ///////////////////////////
   if(angle <-30) angle = -30;
   if(angle > 60) angle = 60;
-  bird.style.transform = `rotate(${birdAngle}deg)`;
+  bird.style.transform = `rotate(${angle}deg)`;
 }
 
 
