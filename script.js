@@ -19,7 +19,7 @@ const maxScoreDisplay = document.querySelector("#best-score");
 
 const BIRD_INITIAL_FROM_TOP = 200;
 let birdFromTop = BIRD_INITIAL_FROM_TOP;
-let gravity = 2;
+let gravity = 0.1;
 let gravityInterval;
 let score = 0;
 let allPipes = [];
@@ -29,9 +29,8 @@ const PIPE_SPACING = 300;
 const PIPE_WIDTH = 85;
 const PIPE_AT_A_TIME = 7;
 const PIPE_MOVE_RATE = 2.2;
-let birdAngle = 0;
-let birdAngleByGraviity = 0;
-let birdAngleBySpace = 0;
+let birdVelocity = 0;
+
 
 
 /* ==========================================
@@ -91,9 +90,8 @@ bird.style.left = `${BIRD_X_POS}px`;
 ============================================= */
 
 const birdGravity = () => {
-    birdFromTop += gravity;
-    // birdAngleByGraviity = 5;  
-    // bird.style.top = birdFromTop + "px";
+    birdVelocity += gravity;
+   // bird.style.top = birdFromTop + "px";
 
   }; //Manipulate the gravity for bird 
 
@@ -199,6 +197,7 @@ const gameLoop = ()=>{
   updatePipes();
   BirdCollide();
   scoreCount();
+  birdFromTop += birdVelocity;
   bird.style.top = birdFromTop + "px";
 } //A single loop that runs to check and maintian the state of the game
 
@@ -254,8 +253,7 @@ startBut.addEventListener("click", () => {
 document.addEventListener("keydown", (e) => {
   if (!gameRunning) return;
   if (e.code == "Space") {
-    birdFromTop -= 60;
-    birdAngle -= 20;
+    birdVelocity -= 5;
     // bird.style.top = birdFromTop + "px";
     BIRD_WING_VOICE.cloneNode(true).play();
   }
