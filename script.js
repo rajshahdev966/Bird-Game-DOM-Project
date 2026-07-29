@@ -253,7 +253,7 @@ startBut.addEventListener("click", () => {
 document.addEventListener("keydown", (e) => {
   if (!gameRunning) return;
   if (e.code == "Space") {
-    birdVelocity -= 4.5;
+    birdVelocity -= 4.8;
     // bird.style.top = birdFromTop + "px";
     BIRD_WING_VOICE.cloneNode(true).play();
   }
