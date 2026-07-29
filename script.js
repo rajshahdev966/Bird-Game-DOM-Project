@@ -94,7 +94,7 @@ const birdGravity = () => {
 
 let BirdCollide = () => {
   for (const pipe of allPipes) {
-    if (pipe.position < bird.clientWidth && pipe.position > -85) {///////////////////////////////////////////////////////
+    if (pipe.position < section.clientWidth * 0.3 + bird.clientWidth && pipe.position > section.clientWidth * 0.3) {///////////////////////////////////////////////////////
       if (
         birdFromTop < pipe.topHeight ||
         birdFromTop + bird.clientHeight > pipe.topHeight + GAP
