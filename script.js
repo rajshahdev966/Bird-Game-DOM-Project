@@ -30,6 +30,8 @@ const PIPE_WIDTH = 85;
 const PIPE_AT_A_TIME = 7;
 const PIPE_MOVE_RATE = 2.2;
 let birdAngle = 0;
+let birdAngleByGraviity = 0;
+let birdAngleBySpace = 0;
 
 
 /* ==========================================
@@ -90,7 +92,7 @@ bird.style.left = `${BIRD_X_POS}px`;
 
 const birdGravity = () => {
     birdFromTop += gravity;
-    birdAngle += 60;  
+    // birdAngleByGraviity = 5;  
     // bird.style.top = birdFromTop + "px";
 
   }; //Manipulate the gravity for bird 
@@ -198,7 +200,6 @@ const gameLoop = ()=>{
   BirdCollide();
   scoreCount();
   bird.style.top = birdFromTop + "px";
-  bird.style.transform = `rotate(${birdAngle}deg)`;
 } //A single loop that runs to check and maintian the state of the game
 
 gameRunInt = setInterval(gameLoop, 10)
@@ -257,7 +258,6 @@ document.addEventListener("keydown", (e) => {
     birdAngle -= 20;
     // bird.style.top = birdFromTop + "px";
     BIRD_WING_VOICE.cloneNode(true).play();
-    bird.style.transform = `rotate(-20deg)`;
   }
 });
 
