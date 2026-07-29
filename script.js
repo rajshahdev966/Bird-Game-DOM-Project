@@ -88,7 +88,7 @@ const gameStart = () => {
 const birdGravity = () => {
     birdFromTop += gravity;
     bird.style.top = birdFromTop + "px";
-}; //Manipulate the gravity for bird
+}; //Manipulate the gravity for bird 
 
 let BirdCollide = () => {
   for (const pipe of allPipes) {
