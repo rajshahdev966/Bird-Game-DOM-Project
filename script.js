@@ -90,6 +90,7 @@ bird.style.left = `${BIRD_X_POS}px`;
 const birdGravity = () => {
     birdFromTop += gravity;
     bird.style.top = birdFromTop + "px";
+    bird.style.transform = `rotate(60deg)`;
 }; //Manipulate the gravity for bird 
 
 let BirdCollide = () => {
@@ -251,6 +252,7 @@ document.addEventListener("keydown", (e) => {
     birdFromTop -= 60;
     bird.style.top = birdFromTop + "px";
     BIRD_WING_VOICE.cloneNode(true).play();
+    bird.style.transform = `rotate(-20deg)`;
   }
 });
 
