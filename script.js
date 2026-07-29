@@ -90,8 +90,8 @@ bird.style.left = `${BIRD_X_POS}px`;
 const birdGravity = () => {
     birdFromTop += gravity;
     bird.style.top = birdFromTop + "px";
-    bird.style.transform = `rotate(60deg)`;
-}; //Manipulate the gravity for bird 
+
+  }; //Manipulate the gravity for bird 
 
 let BirdCollide = () => {
   for (const pipe of allPipes) {
@@ -195,6 +195,7 @@ const gameLoop = ()=>{
   updatePipes();
   BirdCollide();
   scoreCount();
+  bird
 } //A single loop that runs to check and maintian the state of the game
 
 gameRunInt = setInterval(gameLoop, 10)
