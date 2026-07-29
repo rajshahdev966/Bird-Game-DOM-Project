@@ -30,7 +30,7 @@ const PIPE_WIDTH = 85;
 const PIPE_AT_A_TIME = 7;
 const PIPE_MOVE_RATE = 2.2;
 const BIRD_X_POS = section.clientWidth * 0.3;
-bird.style.left = BIRD_X_POS;
+// bird.style.left = BIRD_X_POS;
 
 /* ==========================================
    GAME AUDIO
