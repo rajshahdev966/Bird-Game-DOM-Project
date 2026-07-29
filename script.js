@@ -93,7 +93,7 @@ const birdGravity = () => {
 
 let BirdCollide = () => {
   for (const pipe of allPipes) {
-    if (pipe.position < bird.clientWidth && pipe.position > -85) {
+    if (pipe.position < bird.clientWidth && pipe.position > -85) {///////////////////////////////////////////////////////
       if (
         birdFromTop < pipe.topHeight ||
         birdFromTop + bird.clientHeight > pipe.topHeight + GAP
@@ -102,7 +102,7 @@ let BirdCollide = () => {
       }
     }
   }
-  if (birdFromTop < 0 || birdFromTop > document.body.clientHeight - 50) {
+  if (birdFromTop < 0 || birdFromTop > document.body.clientHeight - 50) {//////////////////////////////////////////
     gameOver();
   }
 }; //Check whether the bird collide or not and also change the props like wise
@@ -207,7 +207,7 @@ maxScoreDisplay.textContent = storedMaxScore;
 
 const scoreCount = () => {
   for (const pipe of allPipes) {
-    if (pipe.position < -PIPE_WIDTH) {
+    if (pipe.position < -PIPE_WIDTH) {////////////////////////////////////////////////////////////
       if (!pipe.isScore) {
         pipe.isScore = !pipe.isScore;
         score++;
