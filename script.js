@@ -110,7 +110,7 @@ let BirdCollide = () => {
 }; //Check whether the bird collide or not and also change the props like wise
 
 const updateBirdAngle = ()=>{
-  birdAngle = birdVelocity * 0.5 ///////////////////////////
+  birdAngle = birdVelocity * 8 ///////////////////////////
   if(birdAngle <-30) birdAngle = -30;
   else if(birdAngle > 60) birdAngle = 60;
   bird.style.transform = `rotate(${birdAngle}deg)`;
