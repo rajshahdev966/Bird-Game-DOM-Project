@@ -194,6 +194,7 @@ const gameLoop = ()=>{
 } //A single loop that runs to check and maintian the state of the game
 
 gameRunInt = setInterval(gameLoop, 10)
+// requestAnimationFrame(gameLoop);
 
 /* ==========================================
    SCORE FUNCTIONS
