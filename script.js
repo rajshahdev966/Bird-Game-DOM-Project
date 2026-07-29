@@ -29,8 +29,7 @@ const PIPE_SPACING = 300;
 const PIPE_WIDTH = 85;
 const PIPE_AT_A_TIME = 7;
 const PIPE_MOVE_RATE = 2.2;
-const BIRD_X_POS = section.clientWidth * 0.5;
-bird.style.left = `${BIRD_X_POS}px`;
+
 
 /* ==========================================
    GAME AUDIO
@@ -80,6 +79,8 @@ const gameStart = () => {
   gameRunning = true;
   pipeArrGen();
   genPipes();
+  const BIRD_X_POS = section.clientWidth * 0.3;
+bird.style.left = `${BIRD_X_POS}px`;
 }; //Called at the start of the game and used to change display property, call pipe generation and call genPipes
 
 /* ==========================================
