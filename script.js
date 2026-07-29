@@ -30,8 +30,9 @@ const PIPE_WIDTH = 85;
 const PIPE_AT_A_TIME = 7;
 const PIPE_MOVE_RATE = 2.2;
 let birdVelocity = 0;
-const 
-
+let birdAngle = 0;
+let birdAngleByGravity = 0;
+let birdAngleByJump = 0;
 
 /* ==========================================
    GAME AUDIO
